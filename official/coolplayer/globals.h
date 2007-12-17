@@ -426,12 +426,6 @@ struct
     BOOL m_bOptions_ChangedSkin;
     CP_HSYSICON m_hSysIcon;
     CPe_MixerMode m_enMixerMode;
-
-	/** CHANGED - BUGFIX - only allow items we can play */
-	// see CPI_Player_Engine.c engine startup for info
-	// we need a context to loop through all codecs
-	// to see if a file is valid when adding to playlist
-	void* m_pContext;
 } globals;
 
 CoolSkin Skin;

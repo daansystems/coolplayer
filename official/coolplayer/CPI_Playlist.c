@@ -344,14 +344,19 @@ void CPL_AddSingleFile(CP_HPLAYLIST hPlaylist, const char* pcPath, const char* p
 	{
 		int i;
 		BOOL valid = FALSE;
-		CPs_PlayerContext* pContext = (CPs_PlayerContext*)globals.m_pContext;
-		char* extension = pcPath + strlen(pcPath);
+		CPs_PlayEngine* player = (CPs_PlayEngine*)globals.m_hPlayer;
+		CPs_PlayerContext* pContext = (CPs_PlayerContext*)player->m_pContext;
 		DWORD tempcookie;
+		char *extension=NULL;
+		{
+			// Find	 the extension
+			
+			char *dot=strrchr(pcPath,'.');
+			if(dot) extension=dot+1;
+		}
+		if (extension == NULL)
+			return;
 
-		while (*extension != '.')
-			extension--;
-
-		extension++;
 		for (i = 0; i <= CP_CODEC_last; i++)
 		{
 			if (CPFA_IsAssociated(&pContext->m_CoDecs[i], extension, &tempcookie))

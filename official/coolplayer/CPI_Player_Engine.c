@@ -67,14 +67,7 @@ DWORD WINAPI CPI_Player__EngineEP(void* pCookie)
     CP_TRACE0("Cooler Engine Startup");
     hr_ComState = CoInitialize(NULL);
 
-    // Initialise USER32.DLL for this thread
-    {
-        MSG msgDummy;
-        PeekMessage(&msgDummy, 0, WM_USER, WM_USER, PM_NOREMOVE);
-
-        // Signal this thread ready for input
-        SetEvent(playercontext.m_pBaseEngineParams->m_hEvtThreadReady);
-    }
+	/** CHANGED - moved further down */
 
     // Initialise CoDecs
     CP_InitialiseCodec_MPEG(&playercontext.m_CoDecs[CP_CODEC_MPEG]);
@@ -91,14 +84,22 @@ DWORD WINAPI CPI_Player__EngineEP(void* pCookie)
     CPI_Player_Output_Initialise_File(&playercontext.m_OutputModules[CP_OUTPUT_FILE]);
     playercontext.m_pCurrentOutputModule = &playercontext.m_OutputModules[playercontext.m_dwCurrentOutputModule];
 
-	/** CHANGED - BUGFIX - only allow items we can play */
-	// when adding a file to the playlist, we need to go through
-	// all codecs to see if they can play the file.
-	// codecs are contained in a player context
-	globals.m_pContext = &playercontext;
-
     // Initialise EQ
     CPI_Player_Equaliser_Initialise_Basic(&playercontext.m_Equaliser);
+
+	{
+		CPs_PlayEngine* player = (CPs_PlayEngine*)pCookie;
+		player->m_pContext = &playercontext;
+	}
+
+    // Initialise USER32.DLL for this thread
+    {
+        MSG msgDummy;
+        PeekMessage(&msgDummy, 0, WM_USER, WM_USER, PM_NOREMOVE);
+
+        // Signal this thread ready for input
+        SetEvent(playercontext.m_pBaseEngineParams->m_hEvtThreadReady);
+    }
 
     do
     {

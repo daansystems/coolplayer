@@ -27,7 +27,6 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-
 // Engine control structure
 typedef struct __CPs_PlayEngine
 {
@@ -35,6 +34,7 @@ typedef struct __CPs_PlayEngine
     DWORD m_dwThreadID;
     HANDLE m_hEvtThreadReady;
     HWND m_hWndNotify;
+	void* m_pContext;	/** CHANGED - playercontext needed to check if files are valid */
 
     // Volume control mixer
     HMIXER m_hVolumeMixer;
@@ -61,7 +61,6 @@ extern DWORD WINAPI CPI_Player__EngineEP(void* pCookie);
 #define CPTM_ONOUTPUTMODULECHANGE		(WM_APP+0x00D)
 #define CPTM_ASSOCIATEFILEEXTENSIONS	(WM_APP+0x00E)
 #define CPTM_SETINTERNALVOLUME			(WM_APP+0x00F)
-
 
 
 // Notifies

@@ -110,7 +110,7 @@ void CPFA_AddFileAssociation(CPs_CoDecModule* pCoDec, const char* pcExtension, D
 //
 BOOL CPFA_IsAssociated(CPs_CoDecModule* pCoDec, const char* pcExtension, DWORD* pdwCookie)
 {
-    // Walk list looking for the extension
+	// Walk list looking for the extension
     CPs_FileAssociation* pCursor = (CPs_FileAssociation*)pCoDec->m_pFileAssociationCookie;
     while(pCursor)
     {
