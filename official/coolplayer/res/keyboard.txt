@@ -44,4 +44,3 @@ ALT-UP		Move selection up one
 ALT-DOWN	Move selection up one
 ALT-Kp-		Minimise playlist window
 ALT-Kp+		Minimise playlist window
- 
