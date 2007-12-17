@@ -51,7 +51,7 @@ typedef void* CP_HSYSICON;
 #include "String.h"
 
 // Handle to player
-#define CP_BUILD_NUMBER		216
+#define CP_BUILD_NUMBER		217
 #define CIC_HTTPHEADER		"http://"
 #define CIC_HTTPSHEADER		"https://"
 #define CIC_FTPHEADER		"ftp://"
