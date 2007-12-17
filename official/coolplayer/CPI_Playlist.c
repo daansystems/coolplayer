@@ -27,6 +27,9 @@
 #include "CPI_PlaylistItem_Internal.h"
 #include "CPI_Player.h"
 
+/** CHANGED - BUGFIX - only allow items we can play */
+// moved PlayerContext struct to header file
+#include "CPI_Player_Engine.h"
 
 #define CPC_TRACKSTACK_BUFFER_QUANTISATION	32
 typedef int (__cdecl *wp_SortFN)(const void *elem1, const void *elem2);
@@ -336,6 +339,39 @@ void CPL_AddSingleFile(CP_HPLAYLIST hPlaylist, const char* pcPath, const char* p
     CPs_Playlist* pPlaylist = (CPs_Playlist*)hPlaylist;
     CP_HPLAYLISTITEM hNewFile;
     CP_CHECKOBJECT(pPlaylist);
+
+	/** CHANGED - BUGFIX - only allow items we can play */
+	{
+		int i;
+		BOOL valid = FALSE;
+		CPs_PlayerContext* pContext = (CPs_PlayerContext*)globals.m_pContext;
+		char* extension = pcPath + strlen(pcPath);
+		DWORD tempcookie;
+
+		while (*extension != '.')
+			extension--;
+
+		extension++;
+		for (i = 0; i <= CP_CODEC_last; i++)
+		{
+			if (CPFA_IsAssociated(&pContext->m_CoDecs[i], extension, &tempcookie))
+			{
+				valid = TRUE;
+				break;
+			}
+		}
+
+		// we could get here and still be valid
+		// it might get here if a stream is of the form http://ipaddr:port with no
+		// file name such as http://ipaddr:port/filename.ogg
+		if(strnicmp(CIC_HTTPHEADER, pcPath, 5) == 0
+            || strnicmp("https:", pcPath, 6) == 0
+            || strnicmp("ftp:", pcPath, 4) == 0)
+			valid = TRUE;
+
+		if (valid == FALSE)
+			return;
+	}
 
     hNewFile = CPLII_CreateItem(pcPath);
 

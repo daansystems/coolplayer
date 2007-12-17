@@ -396,6 +396,11 @@ SOURCE=.\CPI_Player_CoDec.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\CPI_Player_Engine.h
+# PROP Exclude_From_Build 1
+# End Source File
+# Begin Source File
+
 SOURCE=.\CPI_Player_Messages.h
 # PROP Exclude_From_Build 1
 # End Source File

@@ -21,12 +21,7 @@
 
 #include "stdafx.h"
 #include "globals.h"
-#include "CPI_Player.h"
-#include "CPI_Player_Messages.h"
-#include "CPI_Player_CoDec.h"
-#include "CPI_Player_Output.h"
-#include "CPI_Equaliser.h"
-
+#include "CPI_Player_Engine.h"
 
 ////////////////////////////////////////////////////////////////////////////////
 //
@@ -41,35 +36,6 @@
 // that the caller allocates and frees (so we can use stack variables).
 //
 ////////////////////////////////////////////////////////////////////////////////
-
-
-////////////////////////////////////////////////////////////////////////////////
-//
-typedef struct __CPs_PlayerContext
-{
-    CPs_PlayEngine* m_pBaseEngineParams;
-    CPs_CoDecModule m_CoDecs[CP_CODEC_last+1];
-    CPs_OutputModule m_OutputModules[CP_OUTPUT_last+1];
-
-    CPs_OutputModule* m_pCurrentOutputModule;
-    BOOL m_bOutputActive;
-    DWORD m_dwCurrentOutputModule;
-    int m_iInternalVolume;
-
-    int m_iLastSentTime_Secs;
-    int m_iLastSentTime_Proportion;
-    int m_iProportion_TrackLength;
-
-    int m_iOpenDevice_Freq_Hz;
-    BOOL m_bOpenDevice_Stereo;
-    BOOL m_bOpenDevice_16bit;
-
-    CPs_EqualiserModule m_Equaliser;
-
-} CPs_PlayerContext;
-//
-////////////////////////////////////////////////////////////////////////////////
-
 
 
 void UpdateProgress(CPs_PlayerContext* pContext);
@@ -125,6 +91,11 @@ DWORD WINAPI CPI_Player__EngineEP(void* pCookie)
     CPI_Player_Output_Initialise_File(&playercontext.m_OutputModules[CP_OUTPUT_FILE]);
     playercontext.m_pCurrentOutputModule = &playercontext.m_OutputModules[playercontext.m_dwCurrentOutputModule];
 
+	/** CHANGED - BUGFIX - only allow items we can play */
+	// when adding a file to the playlist, we need to go through
+	// all codecs to see if they can play the file.
+	// codecs are contained in a player context
+	globals.m_pContext = &playercontext;
 
     // Initialise EQ
     CPI_Player_Equaliser_Initialise_Basic(&playercontext.m_Equaliser);

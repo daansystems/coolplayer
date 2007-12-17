@@ -8,6 +8,8 @@ Version 217
  + "Add files" is back
  + Improved options dialog usability (Keyboard input and tab navigation now works and in correct order)
  + Menus now have keyboard accelerators for easier navigation (underlined letters)
+ + Fixed length of WAV files not showing in playlist
+ + Fixed non valid files being added to playlist (such as .txt)
 
 Version 216
  + Enhanced aoTuV vorbis support.
