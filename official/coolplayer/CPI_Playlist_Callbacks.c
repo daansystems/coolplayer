@@ -34,115 +34,127 @@
 //
 void CPL_cb_OnItemUpdated(const CP_HPLAYLISTITEM hItem)
 {
-    if(globals.m_hPlaylistViewControl)
-    {
-        const int iItemIDX = CPLI_GetCookie(hItem);
-        if(iItemIDX != CPC_INVALIDITEM)
-            CLV_SetItemData(globals.m_hPlaylistViewControl, iItemIDX, hItem);
-    }
+	if (globals.m_hPlaylistViewControl)
+	{
+		const int iItemIDX = CPLI_GetCookie(hItem);
+		
+		if (iItemIDX != CPC_INVALIDITEM)
+			CLV_SetItemData(globals.m_hPlaylistViewControl, iItemIDX, hItem);
+	}
 }
+
 //
 //
 //
 void CPL_cb_OnPlaylistAppend(const CP_HPLAYLISTITEM hItem)
 {
-    int iNewItemIDX;
-
-    iNewItemIDX = CLV_AddItem(globals.m_hPlaylistViewControl, hItem);
-    CPLI_SetCookie(hItem, iNewItemIDX);
+	int iNewItemIDX;
+	
+	iNewItemIDX = CLV_AddItem(globals.m_hPlaylistViewControl, hItem);
+	CPLI_SetCookie(hItem, iNewItemIDX);
 }
+
 //
 //
 //
 void CPL_cb_OnPlaylistItemDelete(const CP_HPLAYLISTITEM hItem)
 {
-    CP_HPLAYLISTITEM hCursor;
-    int iItemIDX = CPLI_GetCookie(hItem);
-
-    // Remove the item from the list
-    CLV_DeleteItem(globals.m_hPlaylistViewControl, iItemIDX);
-
-    // We are storing the item number on the item cookie - we must now renumber all
-    // list items after this item
-    for(hCursor = CPLI_Next(hItem); hCursor; hCursor = CPLI_Next(hCursor), iItemIDX++)
-        CPLI_SetCookie(hCursor, iItemIDX);
+	CP_HPLAYLISTITEM hCursor;
+	int iItemIDX = CPLI_GetCookie(hItem);
+	
+	// Remove the item from the list
+	CLV_DeleteItem(globals.m_hPlaylistViewControl, iItemIDX);
+	
+	// We are storing the item number on the item cookie - we must now renumber all
+	// list items after this item
+	
+	for (hCursor = CPLI_Next(hItem); hCursor; hCursor = CPLI_Next(hCursor), iItemIDX++)
+		CPLI_SetCookie(hCursor, iItemIDX);
 }
+
 //
 //
 //
 void CPL_cb_OnPlaylistEmpty()
 {
-    if(globals.m_hPlaylistViewControl)
-        CLV_RemoveAllItems(globals.m_hPlaylistViewControl);
+	if (globals.m_hPlaylistViewControl)
+		CLV_RemoveAllItems(globals.m_hPlaylistViewControl);
 }
+
 //
 //
 //
 void CPL_cb_OnPlaylistActivationChange(const CP_HPLAYLISTITEM hItem, const BOOL bNewActiveState)
 {
-    if(bNewActiveState == TRUE)
-    {
-        main_update_title_text();
-        main_draw_title(windows.wnd_main);
-        main_draw_tracknr(windows.wnd_main);
-    }
+	if (bNewActiveState == TRUE)
+	{
+		main_update_title_text();
+		main_draw_title(windows.wnd_main);
+		main_draw_tracknr(windows.wnd_main);
+	}
 }
+
 //
 //
 //
 void CPL_cb_OnPlaylistActivationEmpty()
 {
-    main_update_title_text();
-    main_draw_title(windows.wnd_main);
-    main_draw_tracknr(windows.wnd_main);
+	main_update_title_text();
+	main_draw_title(windows.wnd_main);
+	main_draw_tracknr(windows.wnd_main);
 }
+
 //
 //
 //
 void CPL_cb_SetWindowToReflectList()
 {
-    CP_HPLAYLISTITEM hCursor;
-    CP_HPLAYLISTITEM hSelected;
-
-    if(globals.m_hPlaylistViewControl)
-        CLV_BeginBatch(globals.m_hPlaylistViewControl);
-
-    // Unselect active item
-    hSelected = CPL_GetActiveItem(globals.m_hPlaylist);
-
-    // Add items to list
-    CLV_RemoveAllItems(globals.m_hPlaylistViewControl);
-    for(hCursor = CPL_GetFirstItem(globals.m_hPlaylist); hCursor; hCursor = CPLI_Next(hCursor))
-        CPL_cb_OnPlaylistAppend(hCursor);
-
-    // Set active item
-    if(hSelected)
-        CPL_cb_OnPlaylistActivationChange(hSelected, TRUE);
-
-    if(globals.m_hPlaylistViewControl)
-        CLV_EndBatch(globals.m_hPlaylistViewControl);
+	CP_HPLAYLISTITEM hCursor;
+	CP_HPLAYLISTITEM hSelected;
+	
+	if (globals.m_hPlaylistViewControl)
+		CLV_BeginBatch(globals.m_hPlaylistViewControl);
+		
+	// Unselect active item
+	hSelected = CPL_GetActiveItem(globals.m_hPlaylist);
+	
+	// Add items to list
+	CLV_RemoveAllItems(globals.m_hPlaylistViewControl);
+	
+	for (hCursor = CPL_GetFirstItem(globals.m_hPlaylist); hCursor; hCursor = CPLI_Next(hCursor))
+		CPL_cb_OnPlaylistAppend(hCursor);
+		
+	// Set active item
+	if (hSelected)
+		CPL_cb_OnPlaylistActivationChange(hSelected, TRUE);
+		
+	if (globals.m_hPlaylistViewControl)
+		CLV_EndBatch(globals.m_hPlaylistViewControl);
 }
+
 //
 //
 //
 void CPL_cb_LockWindowUpdates(const BOOL bLock)
 {
-    if(globals.m_hPlaylistViewControl)
-    {
-        if(bLock)
-            CLV_BeginBatch(globals.m_hPlaylistViewControl);
-        else
-            CLV_EndBatch(globals.m_hPlaylistViewControl);
-    }
+	if (globals.m_hPlaylistViewControl)
+	{
+		if (bLock)
+			CLV_BeginBatch(globals.m_hPlaylistViewControl);
+		else
+			CLV_EndBatch(globals.m_hPlaylistViewControl);
+	}
 }
+
 //
 //
 //
 void CPL_cb_TrackStackChanged()
 {
-    if(globals.m_hPlaylistViewControl)
-        CLV_Invalidate(globals.m_hPlaylistViewControl);
+	if (globals.m_hPlaylistViewControl)
+		CLV_Invalidate(globals.m_hPlaylistViewControl);
 }
+
 //
 //
 //

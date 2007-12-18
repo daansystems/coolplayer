@@ -31,23 +31,25 @@
 
 
 ////////////////////////////////////////////////////////////////////////////////
-//	Win2000/98 API stuff
-/** CHANGED - needed only for VC6 compile **/
+// Win2000/98 API stuff
+// needed only for VC6 compile **/
 #ifndef MONITOR_DEFAULTTONULL
 typedef void* HMONITOR;
+
 typedef struct _MONITORINFO
 {
-    DWORD  cbSize; 
-    RECT   rcMonitor; 
-    RECT   rcWork; 
-    DWORD  dwFlags; 
-} MONITORINFO; 
+	DWORD  cbSize;
+	RECT   rcMonitor;
+	RECT   rcWork;
+	DWORD  dwFlags;
+} MONITORINFO;
+
 #define MONITOR_DEFAULTTONULL       0x00000000
 #define MONITOR_DEFAULTTOPRIMARY    0x00000001
 #define MONITOR_DEFAULTTONEAREST    0x00000002
 #endif
-typedef BOOL (WINAPI *wp_GetMonitorInfo)(HMONITOR hMonitor,MONITORINFO* lpmi);
-typedef HMONITOR (WINAPI *wp_MonitorFromWindow)(HWND hwnd,DWORD dwFlags);
+typedef BOOL (WINAPI *wp_GetMonitorInfo)(HMONITOR hMonitor, MONITORINFO* lpmi);
+typedef HMONITOR(WINAPI *wp_MonitorFromWindow)(HWND hwnd, DWORD dwFlags);
 typedef BOOL (WINAPI *wp_TrackMouseEvent)(LPTRACKMOUSEEVENT lpEventTrack);
 //
 extern wp_GetMonitorInfo pfnGetMonitorInfo;

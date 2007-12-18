@@ -32,10 +32,11 @@
 
 typedef struct _CPs_CoDecOptions
 {
-    // public options
-    int m_iPretendOption;
-
+	// public options
+	int m_iPretendOption;
+	
 } CPs_CoDecOptions;
+
 //
 //
 
@@ -44,6 +45,7 @@ struct _CPs_CoDecModule;
 
 ////////////////////////////////////////////////////////////////////////////////
 // CoDec functions
+
 typedef struct _CPs_CoDecModule* CP_HCODECMODULE;
 typedef void (*pfn_Uninitialise)(CP_HCODECMODULE hCoDec);
 //
@@ -61,25 +63,27 @@ typedef int (*pfn_GetCurrentPos_secs)(CP_HCODECMODULE hCoDec);
 
 ////////////////////////////////////////////////////////////////////////////////
 // CoDec module
+
 typedef struct _CPs_CoDecModule
 {
-    // Public functions
-    pfn_Uninitialise Uninitialise;
-
-    pfn_OpenFile OpenFile;
-    pfn_CloseFile CloseFile;
-    pfn_Seek Seek;
-    pfn_GetFileInfo GetFileInfo;
-
-    pfn_GetPCMBlock GetPCMBlock;
-    pfn_GetCurrentPos_secs GetCurrentPos_secs;
-
-    // Public variables
-    void* m_pModuleCookie;	 // This is a pointer to any private data the module may want to maintain
-
-    // Private variables
-    void* m_pFileAssociationCookie;
+	// Public functions
+	pfn_Uninitialise Uninitialise;
+	
+	pfn_OpenFile OpenFile;
+	pfn_CloseFile CloseFile;
+	pfn_Seek Seek;
+	pfn_GetFileInfo GetFileInfo;
+	
+	pfn_GetPCMBlock GetPCMBlock;
+	pfn_GetCurrentPos_secs GetCurrentPos_secs;
+	
+	// Public variables
+	void* m_pModuleCookie;  // This is a pointer to any private data the module may want to maintain
+	
+	// Private variables
+	void* m_pFileAssociationCookie;
 } CPs_CoDecModule;
+
 //
 ////////////////////////////////////////////////////////////////////////////////
 

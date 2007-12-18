@@ -22,16 +22,14 @@
 
 typedef struct _CPs_RIFFHeader
 {
-    char m_cID[4];
-    DWORD m_dwLength;
-    char m_cFileType[4];
-}
-CPs_RIFFHeader;
+	char m_cID[4];
+	DWORD m_dwLength;
+	char m_cFileType[4];
+} CPs_RIFFHeader;
 
 
 typedef struct _CPs_RIFFChunk
 {
-    char m_cID[4];
-    DWORD m_dwLength;
-}
-CPs_RIFFChunk;
+	char m_cID[4];
+	DWORD m_dwLength;
+} CPs_RIFFChunk;

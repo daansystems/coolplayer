@@ -66,7 +66,7 @@ LRESULT CALLBACK about_windowproc(HWND hwndDlg, UINT msg, WPARAM wParam, LPARAM 
 
 			SetForegroundWindow(hwndDlg);
 			return TRUE;
-		}
+		} // end WM_INITDIALOG
 
 		case WM_TIMER:
 		{
@@ -82,14 +82,14 @@ LRESULT CALLBACK about_windowproc(HWND hwndDlg, UINT msg, WPARAM wParam, LPARAM 
 				globals.about_double_smiley_jump_pos = 0.9;
 
 			break;
-		}
+		} // end WM_TIMER
 
 		case WM_CLOSE:
 		{
 			EndDialog(hwndDlg, 1);
 			KillTimer(hwndDlg, CPC_TIMERID_BOUNCINGICON);
 			return TRUE;
-		}
+		} // end WM_CLOSE
 
 		case WM_COMMAND:
 		{
@@ -111,15 +111,15 @@ LRESULT CALLBACK about_windowproc(HWND hwndDlg, UINT msg, WPARAM wParam, LPARAM 
 					SetAboutText(hwndDlg, IDR_ABOUT1);
 					break;
 
-
 				case IDC_CHANGELOG:
 					SetAboutText(hwndDlg, IDR_CHANGES);
 					break;
 			}
 			break;
-		}
+		} // end WM_COMMAND
 
 		case WM_NOTIFY:
+		{
 			if (wParam == IDC_SPIN1)
 			{
 				NM_UPDOWN *header = (NM_UPDOWN *) lParam;
@@ -132,6 +132,7 @@ LRESULT CALLBACK about_windowproc(HWND hwndDlg, UINT msg, WPARAM wParam, LPARAM 
 					globals.about_double_smiley_jump_speed = 0;
 			}
 			break;
+		} // end WM_NOTIFY
 	}
 
 	return FALSE;

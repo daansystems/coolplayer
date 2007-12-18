@@ -32,20 +32,20 @@
 //
 typedef enum _CPe_ReadWriteState
 {
-    rwsUnknown,
-    rwsReadOnly,
-    rwsReadWrite,
-    rwsBadFile
+	rwsUnknown,
+	rwsReadOnly,
+	rwsReadWrite,
+	rwsBadFile
 } CPe_ReadWriteState;
 //
 typedef enum _CPe_FilenameFormat
 {
-    rwsArtistAlbumNumberTitle = 1,
-    rwsArtistNumberTitle = 2,
-    rwsAlbumNumberTitle = 3,
-    rwsAlbumNumber = 4,
-    rwsNumberTitle = 5,
-    rwsTitle = 6
+	rwsArtistAlbumNumberTitle = 1,
+	rwsArtistNumberTitle = 2,
+	rwsAlbumNumberTitle = 3,
+	rwsAlbumNumber = 4,
+	rwsNumberTitle = 5,
+	rwsTitle = 6
 } CPe_FilenameFormat;
 //
 //
@@ -53,10 +53,10 @@ typedef enum _CPe_FilenameFormat
 
 
 
-#define CIC_INVALIDPLAYLISTCOOKIE	0xFFFFFFFF
-#define CIC_INVALIDGENRE			((unsigned char)0xFF)
-#define CIC_INVALIDTRACKNUM			((unsigned char)0xFF)
-#define CIC_TRACKSTACK_UNSTACKED	0xEFFFFFFF
+#define CIC_INVALIDPLAYLISTCOOKIE					0xFFFFFFFF
+#define CIC_INVALIDGENRE							((unsigned char)0xFF)
+#define CIC_INVALIDTRACKNUM							((unsigned char)0xFF)
+#define CIC_TRACKSTACK_UNSTACKED					0xEFFFFFFF
 ////////////////////////////////////////////////////////////////////////////////
 //
 // Accessors (always use these!!)

@@ -31,25 +31,27 @@
 //
 void IP_Invalidate(CP_HINTERFACEPART hPart)
 {
-    CPs_InterfacePart* pIP = (CPs_InterfacePart*)hPart;
-    CP_CHECKOBJECT(pIP);
-
-    InvalidateRect(IF_GetHWnd(pIP->m_hOwner),
-                   &pIP->m_rLocation, FALSE);
+	CPs_InterfacePart* pIP = (CPs_InterfacePart*)hPart;
+	CP_CHECKOBJECT(pIP);
+	
+	InvalidateRect(IF_GetHWnd(pIP->m_hOwner),
+				   &pIP->m_rLocation, FALSE);
 }
+
 //
 //
 //
 void IP_Destroy(CP_HINTERFACEPART hPart)
 {
-    CPs_InterfacePart* pIP = (CPs_InterfacePart*)hPart;
-    CP_CHECKOBJECT(pIP);
-
-    if(pIP->Destroy_PrivateData)
-        pIP->Destroy_PrivateData(pIP);
-
-    free(pIP);
+	CPs_InterfacePart* pIP = (CPs_InterfacePart*)hPart;
+	CP_CHECKOBJECT(pIP);
+	
+	if (pIP->Destroy_PrivateData)
+		pIP->Destroy_PrivateData(pIP);
+		
+	free(pIP);
 }
+
 //
 //
 //

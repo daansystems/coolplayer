@@ -34,16 +34,16 @@
 //
 typedef enum _CPe_CustomDrawColour
 {
-    cdcNormal,
-    cdcHighlighted,
-    cdcLowlighted
+	cdcNormal,
+	cdcHighlighted,
+	cdcLowlighted
 } CPe_CustomDrawColour;
 //
 typedef enum _CPe_ListColumnAlign
 {
-    lcaLeft,
-    lcaCentre,
-    lcaRight,
+	lcaLeft,
+	lcaCentre,
+	lcaRight,
 } CPe_ListColumnAlign;
 //
 ////////////////////////////////////////////////////////////////////////////////
@@ -136,6 +136,6 @@ void CLV_sethandler_ItemRightClick(CP_HLISTVIEW _hListData, wp_ItemSubCallback p
 #define CPLV_ITEMFLAG_SELECTED		1L
 //
 // General
-#define	CPC_INVALIDCOLUMN				-1
-#define CPC_INVALIDITEM					-1
+#define CPC_INVALIDCOLUMN			-1
+#define CPC_INVALIDITEM				-1
 ////////////////////////////////////////////////////////////////////////////////

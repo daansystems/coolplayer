@@ -33,30 +33,34 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 //
+
 typedef struct _CPs_Image
 {
-    HBITMAP m_hbmImage;
-    SIZE m_szSize;
-
+	HBITMAP m_hbmImage;
+	SIZE m_szSize;
+	
 } CPs_Image;
+
 //
 typedef enum _CPe_ImageState
 {
-    igsQuiescent = 0,
-    igsActive = 1,
-    igsFloatActive = 2,
-
-    igsLast = 2
-
+	igsQuiescent = 0,
+	igsActive = 1,
+	igsFloatActive = 2,
+	
+	igsLast = 2
+	
 } CPe_ImageState;
 //
+
 typedef struct _CPs_Image_WithState
 {
-    CPs_Image* m_pImage;
-    int m_iStateHeight;
-    POINT m_ptSource[igsLast+1];
-
+	CPs_Image* m_pImage;
+	int m_iStateHeight;
+	POINT m_ptSource[igsLast+1];
+	
 } CPs_Image_WithState;
+
 //
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -64,8 +68,8 @@ typedef struct _CPs_Image_WithState
 
 ////////////////////////////////////////////////////////////////////////////////
 //
-#define CIC_TILEDFILOPTIONS_NONE		0
-#define CIC_TILEDFILOPTIONS_NOCENTRE	1
+#define CIC_TILEDFILOPTIONS_NONE  0
+#define CIC_TILEDFILOPTIONS_NOCENTRE 1
 //
 CPs_Image* CPIG_CreateImage_FromFile(const char* pcFilename);
 CPs_Image* CPIG_CreateImage_FromSubFile(CP_COMPOSITEFILE hmComposite, const char* pcSubFilename);

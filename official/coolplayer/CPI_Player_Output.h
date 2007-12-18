@@ -35,6 +35,7 @@ struct _CPs_OutputModule;
 
 ////////////////////////////////////////////////////////////////////////////////
 // Output functions
+
 typedef struct _CPs_OutputModule* CP_HOUTPUTMODULE;
 typedef void (*pfnOP_Initialise)(CP_HOUTPUTMODULE pModule, const CPs_FileInfo* pFileInfo, CP_HEQUALISER hEqualiser);
 typedef void (*pfnOP_Uninitialise)(CP_HOUTPUTMODULE pModule);
@@ -50,28 +51,30 @@ typedef void (*pfnOP_SetInternalVolume)(CP_HOUTPUTMODULE pModule, const int iNew
 
 ////////////////////////////////////////////////////////////////////////////////
 // Output module
+
 typedef struct _CPs_OutputModule
 {
-    // Public functions
-    pfnOP_Initialise Initialise;
-    pfnOP_Uninitialise Uninitialise;
-    pfnOP_RefillBuffers RefillBuffers;
-    pfnOP_SetPause SetPause;
-    pfnOP_IsOutputComplete IsOutputComplete;
-    pfnOP_Flush Flush;
-    pfnOP_OnEQChanged OnEQChanged;
-    pfnOP_SetInternalVolume SetInternalVolume;
-
-    // Public variables
-    CPs_CoDecModule* m_pCoDec;		// NULL when the stream is exhausted
-    HANDLE m_evtBlockFree;
-    const char* m_pcModuleName;
-    CP_HEQUALISER m_pEqualiser;
-
-    // Private variables
-    void* m_pModuleCookie;	 // This is a pointer to any private data the module may want to maintain
-
+	// Public functions
+	pfnOP_Initialise Initialise;
+	pfnOP_Uninitialise Uninitialise;
+	pfnOP_RefillBuffers RefillBuffers;
+	pfnOP_SetPause SetPause;
+	pfnOP_IsOutputComplete IsOutputComplete;
+	pfnOP_Flush Flush;
+	pfnOP_OnEQChanged OnEQChanged;
+	pfnOP_SetInternalVolume SetInternalVolume;
+	
+	// Public variables
+	CPs_CoDecModule* m_pCoDec;  // NULL when the stream is exhausted
+	HANDLE m_evtBlockFree;
+	const char* m_pcModuleName;
+	CP_HEQUALISER m_pEqualiser;
+	
+	// Private variables
+	void* m_pModuleCookie;  // This is a pointer to any private data the module may want to maintain
+	
 } CPs_OutputModule;
+
 //
 ////////////////////////////////////////////////////////////////////////////////
 

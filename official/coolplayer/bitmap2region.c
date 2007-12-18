@@ -99,13 +99,13 @@ HRGN main_bitmap_to_region(HBITMAP hBmp, COLORREF cTransparentColor)
 	iLastRectIDX = 0;
 	iRGNDataSize_Rects = 0;
 	bDetectedTransparentPixel = FALSE;
-	for(iRowIDX =0; iRowIDX < bitmap.bmHeight; iRowIDX++)
+	for (iRowIDX =0; iRowIDX < bitmap.bmHeight; iRowIDX++)
 	{
 		BOOL bInStrip = FALSE;
-		for(iColIDX =0; iColIDX < bitmap.bmWidth; iColIDX++, pBitmapCursor++)
+		for (iColIDX =0; iColIDX < bitmap.bmWidth; iColIDX++, pBitmapCursor++)
 		{
 			// Is the current pixel transparent?
-			if( (((*pBitmapCursor)&0x00FFFFFF)^dwTransMasked) == 0L)
+			if ((((*pBitmapCursor)&0x00FFFFFF)^dwTransMasked) == 0L)
 			{
 				bDetectedTransparentPixel = TRUE;
 				// If we are in a strip - close it
@@ -119,12 +119,12 @@ HRGN main_bitmap_to_region(HBITMAP hBmp, COLORREF cTransparentColor)
 			else
 			{
 				// Open a new strip if we need to
-				if(bInStrip == FALSE)
+				if (bInStrip == FALSE)
 				{
 					bInStrip = TRUE;
 
 					// Ensure that we have enough memory allocated
-					if(iLastRectIDX == iRGNDataSize_Rects)
+					if (iLastRectIDX == iRGNDataSize_Rects)
 					{
 						iRGNDataSize_Rects += CPC_RECT_QUANTISE;
 						pRGNData = (RGNDATA*)realloc(pRGNData, sizeof(RGNDATAHEADER) + (iRGNDataSize_Rects * sizeof(RECT)));
@@ -137,7 +137,7 @@ HRGN main_bitmap_to_region(HBITMAP hBmp, COLORREF cTransparentColor)
 		} // end for column
 
 		// Close any open rects
-		if(bInStrip == TRUE)
+		if (bInStrip == TRUE)
 		{
 			((RECT*)pRGNData->Buffer)[iLastRectIDX].right = bitmap.bmWidth;
 			iLastRectIDX++;
@@ -146,7 +146,7 @@ HRGN main_bitmap_to_region(HBITMAP hBmp, COLORREF cTransparentColor)
 	free(pBitmapBits);
 
 	// If there are some rects in this region - create the GDI object
-	if(bDetectedTransparentPixel == TRUE)
+	if (bDetectedTransparentPixel == TRUE)
 	{
 		pRGNData->rdh.dwSize = sizeof(RGNDATAHEADER);
 		pRGNData->rdh.iType = RDH_RECTANGLES;
@@ -160,7 +160,7 @@ HRGN main_bitmap_to_region(HBITMAP hBmp, COLORREF cTransparentColor)
 	}
 
 	// Cleanup
-	if(pRGNData)
+	if (pRGNData)
 		free(pRGNData);
 	return hRgn;
 }
@@ -190,9 +190,9 @@ HRGN main_bitmap_to_region_1bit(HBITMAP hBmp, COLORREF cTransparentColor)
 
 	// Work out the byte aligned stride of the bitmap
 	iStride = bitmap.bmWidth >> 3;
-	if(bitmap.bmWidth & 0x7)
+	if (bitmap.bmWidth & 0x7)
 		iStride++;
-	if(iStride&0x3)
+	if (iStride&0x3)
 	{
 		iEndofLineCorrection = 0x4 - (iStride&0x3);
 		iStride += iEndofLineCorrection;
@@ -231,10 +231,10 @@ HRGN main_bitmap_to_region_1bit(HBITMAP hBmp, COLORREF cTransparentColor)
 	iLastRectIDX = 0;
 	iRGNDataSize_Rects = 0;
 	dwTransMask = 0x80;
-	for(iRowIDX =0; iRowIDX < bitmap.bmHeight; iRowIDX++)
+	for (iRowIDX =0; iRowIDX < bitmap.bmHeight; iRowIDX++)
 	{
 		BOOL bInStrip = FALSE;
-		for(iColIDX =0; iColIDX < bitmap.bmWidth; iColIDX++)
+		for (iColIDX =0; iColIDX < bitmap.bmWidth; iColIDX++)
 		{
 			// Is the current pixel transparent?
 			if( (*pBitmapCursor) & dwTransMask)
@@ -251,12 +251,12 @@ HRGN main_bitmap_to_region_1bit(HBITMAP hBmp, COLORREF cTransparentColor)
 			else
 			{
 				// Open a new strip if we need to
-				if(bInStrip == FALSE)
+				if (bInStrip == FALSE)
 				{
 					bInStrip = TRUE;
 
 					// Ensure that we have enough memory allocated
-					if(iLastRectIDX == iRGNDataSize_Rects)
+					if (iLastRectIDX == iRGNDataSize_Rects)
 					{
 						iRGNDataSize_Rects += CPC_RECT_QUANTISE;
 						pRGNData = (RGNDATA*)realloc(pRGNData, sizeof(RGNDATAHEADER) + (iRGNDataSize_Rects * sizeof(RECT)));
@@ -269,7 +269,7 @@ HRGN main_bitmap_to_region_1bit(HBITMAP hBmp, COLORREF cTransparentColor)
 
 			// Advance to next pixel
 			dwTransMask >>= 1;
-			if(!dwTransMask)
+			if (!dwTransMask)
 			{
 				dwTransMask = 0x80;
 				pBitmapCursor++;
@@ -277,14 +277,14 @@ HRGN main_bitmap_to_region_1bit(HBITMAP hBmp, COLORREF cTransparentColor)
 		} // end for column
 
 		// Close any open rects
-		if(bInStrip == TRUE)
+		if (bInStrip == TRUE)
 		{
 			((RECT*)pRGNData->Buffer)[iLastRectIDX].right = bitmap.bmWidth;
 			iLastRectIDX++;
 		}
 
 		// Skip to the start of the next line
-		if(dwTransMask != 0x80)
+		if (dwTransMask != 0x80)
 			pBitmapCursor++;
 
 		dwTransMask = 0x80;
@@ -293,7 +293,7 @@ HRGN main_bitmap_to_region_1bit(HBITMAP hBmp, COLORREF cTransparentColor)
 	free(pBitmapBits);
 
 	// If there are some rects in this region - create the GDI object
-	if(bDetectedTransparentPixel == TRUE)
+	if (bDetectedTransparentPixel == TRUE)
 	{
 		pRGNData->rdh.dwSize = sizeof(RGNDATAHEADER);
 		pRGNData->rdh.iType = RDH_RECTANGLES;
@@ -307,7 +307,7 @@ HRGN main_bitmap_to_region_1bit(HBITMAP hBmp, COLORREF cTransparentColor)
 	}
 
 	// Cleanup
-	if(pRGNData)
+	if (pRGNData)
 		free(pRGNData);
 	return hRgn;
 }

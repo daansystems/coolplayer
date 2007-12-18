@@ -21,13 +21,13 @@
 
 #ifndef _MSC_VER
 
-int _CrtDbgReport( 
-   int reportType,
-   const char *filename,
-   int linenumber,
-   const char *moduleName,
-   const char *lpszFormat ,
-   ... 
+int _CrtDbgReport(
+	int reportType,
+	const char *filename,
+	int linenumber,
+	const char *moduleName,
+	const char *lpszFormat ,
+	...
 )
 {
 	char szBuffer[1024];
@@ -62,15 +62,15 @@ int _CrtDbgReport(
 
 #else
 
-#define CP_CHECKOBJECT(obj_ptr_typed)	{	 }
-#define CP_ASSERT(expr)					{	 }
-#define CP_FAIL(expr)					{	 }
-#define CP_TRACE0(f)					{	 }	
-#define CP_TRACE1(f, e1)				{	 }		
-#define CP_TRACE2(f, e1, e2)			{	 }
-#define CP_TRACE3(f, e1, e2, e3)		{	 }		
-#define CP_TRACE4(f, e1, e2, e3, e4)	{	 }
-#define CP_TRACE5(f, e1, e2, e3, e4, e5){	 }
+#define CP_CHECKOBJECT(obj_ptr_typed) {  }
+#define CP_ASSERT(expr)     {  }
+#define CP_FAIL(expr)     {  }
+#define CP_TRACE0(f)     {  }
+#define CP_TRACE1(f, e1)    {  }
+#define CP_TRACE2(f, e1, e2)   {  }
+#define CP_TRACE3(f, e1, e2, e3)  {  }
+#define CP_TRACE4(f, e1, e2, e3, e4) {  }
+#define CP_TRACE5(f, e1, e2, e3, e4, e5){  }
 
 #endif
 

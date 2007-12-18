@@ -34,7 +34,7 @@
 
 
 
-#define CPC_INTERFACE_STYLE_RESIZING		0x1
+#define CPC_INTERFACE_STYLE_RESIZING  0x1
 ////////////////////////////////////////////////////////////////////////////////
 //
 // One time calls (to initialise process wide structs)
@@ -53,15 +53,15 @@ void IF_PostAppMessage(CP_HINTERFACE hInterface, const UINT uiMessage, const WPA
 // Subparts
 void IF_RemoveAllSubparts(CP_HINTERFACE hInterface);
 void IF_UpdateSubPartLayout(CP_HINTERFACE hInterface);
-void IF_AddSubPart_CommandButton(	CP_HINTERFACE hInterface,
-                                  const DWORD dwAlign,
-                                  const POINT* pptOffset,
-                                  CPs_Image_WithState* pStateImage,
-                                  wp_Verb pfnVerb);
-void IF_AddSubPart_Indicator(	CP_HINTERFACE hInterface,
-                              const char* pcName,
-                              const DWORD dwAlign,
-                              const RECT* prPosition);
+void IF_AddSubPart_CommandButton(CP_HINTERFACE hInterface,
+								 const DWORD dwAlign,
+								 const POINT* pptOffset,
+								 CPs_Image_WithState* pStateImage,
+								 wp_Verb pfnVerb);
+void IF_AddSubPart_Indicator(CP_HINTERFACE hInterface,
+							 const char* pcName,
+							 const DWORD dwAlign,
+							 const RECT* prPosition);
 //
 //
 // Callback Handlers
@@ -86,7 +86,7 @@ typedef void (*wp_IF_onMouseMessage)(CP_HINTERFACE hInterface, const POINTS ptMo
 void IF_SetMouseCapture(CP_HINTERFACE hInterface, wp_IF_onMouseMessage pfn_onMouseMove, wp_IF_onMouseMessage pfn_onMouseButton_LUp);
 void IF_ReleaseMouseCapture(CP_HINTERFACE hInterface);
 // - custom messages
-typedef LRESULT (*wp_IF_onAppMessage)(CP_HINTERFACE hInterface, const UINT uiMessage, const WPARAM wParam, const LPARAM lParam);
+typedef LRESULT(*wp_IF_onAppMessage)(CP_HINTERFACE hInterface, const UINT uiMessage, const WPARAM wParam, const LPARAM lParam);
 void IF_sethandler_onAppMessage(CP_HINTERFACE hInterface, wp_IF_onAppMessage pfnHandler);
 typedef void (*wp_IF_onCommandMessage)(CP_HINTERFACE hInterface, const WPARAM wParam, const LPARAM lParam);
 void IF_sethandler_onCommandMessage(CP_HINTERFACE hInterface, wp_IF_onCommandMessage pfnHandler);

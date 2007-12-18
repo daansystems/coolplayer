@@ -26,27 +26,29 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 //
+
 typedef struct __CPs_PlayerContext
 {
-    CPs_PlayEngine* m_pBaseEngineParams;
-    CPs_CoDecModule m_CoDecs[CP_CODEC_last+1];
-    CPs_OutputModule m_OutputModules[CP_OUTPUT_last+1];
-
-    CPs_OutputModule* m_pCurrentOutputModule;
-    BOOL m_bOutputActive;
-    DWORD m_dwCurrentOutputModule;
-    int m_iInternalVolume;
-
-    int m_iLastSentTime_Secs;
-    int m_iLastSentTime_Proportion;
-    int m_iProportion_TrackLength;
-
-    int m_iOpenDevice_Freq_Hz;
-    BOOL m_bOpenDevice_Stereo;
-    BOOL m_bOpenDevice_16bit;
-
-    CPs_EqualiserModule m_Equaliser;
-
+	CPs_PlayEngine* m_pBaseEngineParams;
+	CPs_CoDecModule m_CoDecs[CP_CODEC_last+1];
+	CPs_OutputModule m_OutputModules[CP_OUTPUT_last+1];
+	
+	CPs_OutputModule* m_pCurrentOutputModule;
+	BOOL m_bOutputActive;
+	DWORD m_dwCurrentOutputModule;
+	int m_iInternalVolume;
+	
+	int m_iLastSentTime_Secs;
+	int m_iLastSentTime_Proportion;
+	int m_iProportion_TrackLength;
+	
+	int m_iOpenDevice_Freq_Hz;
+	BOOL m_bOpenDevice_Stereo;
+	BOOL m_bOpenDevice_16bit;
+	
+	CPs_EqualiserModule m_Equaliser;
+	
 } CPs_PlayerContext;
+
 //
 ////////////////////////////////////////////////////////////////////////////////

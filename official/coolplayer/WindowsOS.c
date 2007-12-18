@@ -35,11 +35,12 @@ wp_TrackMouseEvent pfnTrackMouseEvent;
 //
 void CP_InitWindowsRoutines()
 {
-    HMODULE hmUser32 = GetModuleHandle("USER32");
-    pfnGetMonitorInfo = (wp_GetMonitorInfo)GetProcAddress(hmUser32, "GetMonitorInfoA");
-    pfnMonitorFromWindow = (wp_MonitorFromWindow)GetProcAddress(hmUser32, "MonitorFromWindow");
-    pfnTrackMouseEvent = (wp_TrackMouseEvent)GetProcAddress(hmUser32, "TrackMouseEvent");
+	HMODULE hmUser32 = GetModuleHandle("USER32");
+	pfnGetMonitorInfo = (wp_GetMonitorInfo)GetProcAddress(hmUser32, "GetMonitorInfoA");
+	pfnMonitorFromWindow = (wp_MonitorFromWindow)GetProcAddress(hmUser32, "MonitorFromWindow");
+	pfnTrackMouseEvent = (wp_TrackMouseEvent)GetProcAddress(hmUser32, "TrackMouseEvent");
 }
+
 //
 //
 //

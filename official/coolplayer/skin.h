@@ -20,74 +20,71 @@
 
 enum Objects
 {
-    PlaySwitch,
-    StopSwitch,
-    PauseSwitch,
-    EjectButton,
-    RepeatSwitch,
-    ShuffleSwitch,
-    EqSwitch,
-    NextButton,
-    PrevButton,
-    PlaylistButton,
-    MinimizeButton,
-    NextSkinButton,
-    ExitButton,
-
-    MoveArea,
-
-    VolumeSlider,
-    PositionSlider,
-    Eq1,
-    Eq2,
-    Eq3,
-    Eq4,
-    Eq5,
-    Eq6,
-    Eq7,
-    Eq8,
-
-    SongtitleText,
-    TrackText,
-    TimeText,
-    BitrateText,
-    FreqText,
+	PlaySwitch,
+	StopSwitch,
+	PauseSwitch,
+	EjectButton,
+	RepeatSwitch,
+	ShuffleSwitch,
+	EqSwitch,
+	NextButton,
+	PrevButton,
+	PlaylistButton,
+	MinimizeButton,
+	NextSkinButton,
+	ExitButton,
+	
+	MoveArea,
+	
+	VolumeSlider,
+	PositionSlider,
+	Eq1,
+	Eq2,
+	Eq3,
+	Eq4,
+	Eq5,
+	Eq6,
+	Eq7,
+	Eq8,
+	
+	SongtitleText,
+	TrackText,
+	TimeText,
+	BitrateText,
+	FreqText,
 	ReducedSize,
-    Lastone
+	Lastone
 };
 
 typedef struct
 {
-    char    name[128];
-    enum Objects Object;
-}
-Associate;
+	char    name[128];
+	enum Objects Object;
+} Associate;
 
 typedef struct
 {
-    int     x, y, w, h;
-    int     maxw;
-    int     x2, y2, w2, h2;
-    char    tooltip[100];
-}
-Coords;
+	int     x, y, w, h;
+	int     maxw;
+	int     x2, y2, w2, h2;
+	char    tooltip[100];
+} Coords;
 
 typedef struct Skin
 {
-    Coords  Object[Lastone];
-
-    COLORREF transparentcolor;
-
-    HBITMAP MainUp;
-    HBITMAP MainDown;
-    HBITMAP MainSwitched;
-    HBITMAP TextFont;
-    HBITMAP TimeFont;
-    char    CoolUp[MAX_PATH];
-    char    CoolDown[MAX_PATH];
-    char    CoolSwitch[MAX_PATH];
-    char    aTrackFont[MAX_PATH];
-    char    aTimeFont[MAX_PATH];
-    char    aTextFont[MAX_PATH];
-}
-CoolSkin;
+	Coords  Object[Lastone];
+	
+	COLORREF transparentcolor;
+	
+	HBITMAP MainUp;
+	HBITMAP MainDown;
+	HBITMAP MainSwitched;
+	HBITMAP TextFont;
+	HBITMAP TimeFont;
+	char    CoolUp[MAX_PATH];
+	char    CoolDown[MAX_PATH];
+	char    CoolSwitch[MAX_PATH];
+	char    aTrackFont[MAX_PATH];
+	char    aTimeFont[MAX_PATH];
+	char    aTextFont[MAX_PATH];
+} CoolSkin;

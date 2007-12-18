@@ -38,17 +38,19 @@
 //
 typedef enum _CPe_VerbAction
 {
-    vaDoVerb,			// pParam is the window that originates the verb
-    vaQueryName
+	vaDoVerb,   // pParam is the window that originates the verb
+	vaQueryName
 } CPe_VerbAction;
 //
 //
+
 typedef struct _CPs_VerbQueryName
 {
-    const char* m_pcName;
-    BOOL m_bNameMatched;
-
+	const char* m_pcName;
+	BOOL m_bNameMatched;
+	
 } CPs_VerbQueryName;
+
 //
 //
 typedef void (*wp_Verb)(const CPe_VerbAction enAction, void* pParam);
@@ -78,7 +80,6 @@ void CPVERB_VolumeUp(const CPe_VerbAction enAction, void* pParam);
 void CPVERB_VolumeDown(const CPe_VerbAction enAction, void* pParam);
 //
 void CPVERB_OpenFile(const CPe_VerbAction enAction, void* pParam);
-/** CHANGED - ADDED - just "add files" button is back */
 void CPVERB_AddFile(const CPe_VerbAction enAction, void* _pParam);
 void CPVERB_About(const CPe_VerbAction enAction, void* pParam);
 void CPVERB_Exit(const CPe_VerbAction enAction, void* pParam);

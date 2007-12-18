@@ -31,20 +31,22 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 //
-#define CIC_NUMGENRES	149
+#define CIC_NUMGENRES 149
 extern const char* glb_pcGenres[];
 //
 #pragma pack(push, 1)
+
 typedef struct _CIs_ID3Tag
 {
-    char m_cTAG[3];		// Must equal "TAG"
-    char m_cSong[30];
-    char m_cArtist[30];
-    char m_cAlbum[30];
-    char m_cYear[4];
-    char m_cComment[30];
-    unsigned char m_cGenre;
+	char m_cTAG[3];  // Must equal "TAG"
+	char m_cSong[30];
+	char m_cArtist[30];
+	char m_cAlbum[30];
+	char m_cYear[4];
+	char m_cComment[30];
+	unsigned char m_cGenre;
 } CIs_ID3Tag;
+
 #pragma pack(pop)
 //
 ////////////////////////////////////////////////////////////////////////////////
@@ -60,27 +62,30 @@ typedef struct _CIs_ID3Tag
 ////////////////////////////////////////////////////////////////////////////////
 //
 #pragma pack(push, 1)
+
 typedef struct _CIs_ID3v2Tag
 {
-    char m_cTAG[3];		// Must equal ID3
-    unsigned char m_cVersion[2]; // Major / Minor
-    unsigned char m_cFlags;
-    unsigned char m_cSize_Encoded[4];
+	char m_cTAG[3];  // Must equal ID3
+	unsigned char m_cVersion[2]; // Major / Minor
+	unsigned char m_cFlags;
+	unsigned char m_cSize_Encoded[4];
 } CIs_ID3v2Tag;
+
 //
+
 typedef struct _CIs_ID3v2Frame
 {
-    char m_cFrameID[4];
-    unsigned char m_cSize_Encoded[4];
-    unsigned short m_cFlags;
+	char m_cFrameID[4];
+	unsigned char m_cSize_Encoded[4];
+	unsigned short m_cFlags;
 } CIs_ID3v2Frame;
 
 #pragma pack(pop)
 //
-#define ID3v2_FLAG_UNSYNC			0x80
-#define ID3v2_FLAG_EXTENDEDHEADER	0x40
-#define ID3v2_FLAG_EXPERIMENTAL		0x20
-#define ID3v2_FLAG_FOOTER			0x10
+#define ID3v2_FLAG_UNSYNC   0x80
+#define ID3v2_FLAG_EXTENDEDHEADER 0x40
+#define ID3v2_FLAG_EXPERIMENTAL  0x20
+#define ID3v2_FLAG_FOOTER   0x10
 ////////////////////////////////////////////////////////////////////////////////
 
 
@@ -98,33 +103,39 @@ typedef struct _CIs_ID3v2Frame
 //
 #pragma pack(push, 1)
 //
+
 typedef struct _CIs_OGGFrame_header
 {
-    char m_cCapture[4];		// Must equal OggS
-    unsigned char m_cVersion;
-    unsigned char m_cFlags;
-    unsigned char m_cGranulePos[8];
-    unsigned char m_cSerialNum[4];
-    unsigned char m_cPageSEQ[4];
-    unsigned char m_cPageCheckum[4];
-    unsigned char m_cNumSegments;
-
+	char m_cCapture[4];  // Must equal OggS
+	unsigned char m_cVersion;
+	unsigned char m_cFlags;
+	unsigned char m_cGranulePos[8];
+	unsigned char m_cSerialNum[4];
+	unsigned char m_cPageSEQ[4];
+	unsigned char m_cPageCheckum[4];
+	unsigned char m_cNumSegments;
+	
 } CIs_OGGFrame_header;
+
 //
+
 typedef struct _CIs_OGGFrame
 {
-    CIs_OGGFrame_header m_Header;
-    unsigned char m_cSegments[0xFF];
-
+	CIs_OGGFrame_header m_Header;
+	unsigned char m_cSegments[0xFF];
+	
 } CIs_OGGFrame;
+
 //
+
 typedef struct _CIs_OGGComment
 {
-    char* m_pcVendorString;
-    unsigned int m_iNumComments;
-    char** m_ppUserStrings;
-
+	char* m_pcVendorString;
+	unsigned int m_iNumComments;
+	char** m_ppUserStrings;
+	
 } CIs_OGGComment;
+
 //
 #pragma pack(pop)
 //

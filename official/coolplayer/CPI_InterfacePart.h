@@ -47,45 +47,47 @@ typedef void (*wp_Part_onMouseButton_RUp)(CP_HINTERFACEPART hPart, const POINTS 
 typedef void (*wp_Part_onTimer)(CP_HINTERFACEPART hPart);
 typedef void (*wp_Part_onSongChange)(CP_HINTERFACEPART hPart);
 //
-#define CPC_IP_ALIGN_LEFT	0x1
-#define CPC_IP_ALIGN_RIGHT	0x2
-#define CPC_IP_ALIGN_TOP	0x4
-#define CPC_IP_ALIGN_BOTTOM	0x8
+#define CPC_IP_ALIGN_LEFT 0x1
+#define CPC_IP_ALIGN_RIGHT 0x2
+#define CPC_IP_ALIGN_TOP 0x4
+#define CPC_IP_ALIGN_BOTTOM 0x8
 //
+
 typedef struct _CPs_InterfacePart
 {
-    // Methods
-    wp_Part_Destroy_PrivateData Destroy_PrivateData;
-    wp_Part_Draw Draw;
-
-    // Notifies
-    wp_Part_onMouseIn onMouseIn;
-    wp_Part_onMouseOut onMouseOut;
-    wp_Part_onMouseMove onMouseMove;
-    wp_Part_onMouseButton_LDown onMouseButton_LDown;
-    wp_Part_onMouseButton_LUp onMouseButton_LUp;
-    wp_Part_onMouseButton_RDown onMouseButton_RDown;
-    wp_Part_onMouseButton_RUp onMouseButton_RUp;
-    wp_Part_onTimer onTimer;
-    wp_Part_onSongChange onSongChange;
-
-    // Data
-    RECT m_rLocation;
-    DWORD m_dwAlign;
-
-    BOOL m_bRectAlignMode;
-    RECT m_rPosition;
-    POINT m_ptOffset;
-    SIZE m_szSize;
-
-    CP_HINTERFACE m_hOwner;
-
-    void* m_pPrivateData;
-
-    // Link to next part
-    CP_HINTERFACEPART m_hNext;
-
+	// Methods
+	wp_Part_Destroy_PrivateData Destroy_PrivateData;
+	wp_Part_Draw Draw;
+	
+	// Notifies
+	wp_Part_onMouseIn onMouseIn;
+	wp_Part_onMouseOut onMouseOut;
+	wp_Part_onMouseMove onMouseMove;
+	wp_Part_onMouseButton_LDown onMouseButton_LDown;
+	wp_Part_onMouseButton_LUp onMouseButton_LUp;
+	wp_Part_onMouseButton_RDown onMouseButton_RDown;
+	wp_Part_onMouseButton_RUp onMouseButton_RUp;
+	wp_Part_onTimer onTimer;
+	wp_Part_onSongChange onSongChange;
+	
+	// Data
+	RECT m_rLocation;
+	DWORD m_dwAlign;
+	
+	BOOL m_bRectAlignMode;
+	RECT m_rPosition;
+	POINT m_ptOffset;
+	SIZE m_szSize;
+	
+	CP_HINTERFACE m_hOwner;
+	
+	void* m_pPrivateData;
+	
+	// Link to next part
+	CP_HINTERFACEPART m_hNext;
+	
 } CPs_InterfacePart;
+
 //
 //
 ////////////////////////////////////////////////////////////////////////////////

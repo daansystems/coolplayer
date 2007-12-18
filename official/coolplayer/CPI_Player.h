@@ -22,22 +22,22 @@
 ////////////////////////////////////////////////////////////////////////////////
 //
 // Known CoDecs with ids (must be sequential and zero based)
-#define CP_CODEC_WINAMPPLUGIN	0x0
-#define CP_CODEC_OGG			0x1
-#define CP_CODEC_WAV			0x2
-#define CP_CODEC_MPEG			0x3
-#define CP_CODEC_last			0x3
+#define CP_CODEC_WINAMPPLUGIN		0x0
+#define CP_CODEC_OGG				0x1
+#define CP_CODEC_WAV				0x2
+#define CP_CODEC_MPEG				0x3
+#define CP_CODEC_last				CP_CODEC_MPEG
 
 // Set the CoDec to use if we cannot match a file by it's extension
-#define CP_CODEC_default		CP_CODEC_WINAMPPLUGIN
+#define CP_CODEC_default  CP_CODEC_WINAMPPLUGIN
 
 //
 // Known Output modules (must be sequential and zero based)
-// 
-#define CP_OUTPUT_WAVE			0x0
-#define CP_OUTPUT_DIRECTSOUND	0x1
-#define CP_OUTPUT_FILE			0x2
-#define CP_OUTPUT_last			0x2
+//
+#define CP_OUTPUT_WAVE				0x0
+#define CP_OUTPUT_DIRECTSOUND		0x1
+#define CP_OUTPUT_FILE				0x2
+#define CP_OUTPUT_last				CP_OUTPUT_FILE
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -67,9 +67,9 @@ void CPI_Player__OnOutputDeviceChange(CP_HPLAYER hPlayer);
 //
 //
 // Output control verbs.
-void CPI_Player__SetVolume(CP_HPLAYER hPlayer, const int iNewVolume);		// iVolume range is 0...100
+void CPI_Player__SetVolume(CP_HPLAYER hPlayer, const int iNewVolume);  // iVolume range is 0...100
 int CPI_Player__GetVolume(CP_HPLAYER hPlayer); // Returns volume in 0...100
-void CPI_Player__SetEQ(CP_HPLAYER hPlayer, const BOOL bEnabled, const int cBands[9]);		// cBands range is -127...+127
+void CPI_Player__SetEQ(CP_HPLAYER hPlayer, const BOOL bEnabled, const int cBands[9]);  // cBands range is -127...+127
 //
 //
 // Enumerate output devices (see notify messages below)
@@ -106,7 +106,7 @@ void CPI_Player_cb_OnStreamInfo(CP_HPLAYER hPlayer, const CPs_FileInfo* pInfo);
 void CPI_Player_cb_OnStreamOffset_Secs(CP_HPLAYER hPlayer, const int iTrackElapsedSeconds);
 void CPI_Player_cb_OnStreamOffset_Range(CP_HPLAYER hPlayer, const int iTrackElapsed_Range);
 void CPI_Player_cb_OnPlayerState(CP_HPLAYER hPlayer, const CPe_PlayerState enPlayerState);
-void CPI_Player_cb_OnVolumeChange(CP_HPLAYER hPlayer, const int iNewVolume);	// iNewVolume range is 0...100
+void CPI_Player_cb_OnVolumeChange(CP_HPLAYER hPlayer, const int iNewVolume); // iNewVolume range is 0...100
 //
 // This notify is called as a result of a previous call to CPI_Player__EnumOutputDevices.  It
 // is called once per device.
@@ -129,6 +129,7 @@ void CPI_Player_cb_OnStreamStateChange(CP_HPLAYER hPlayer, const BOOL bStreaming
 // Equaliser stuff
 //
 // Forward reference
+
 struct _CPs_EqualiserModule;
 
 typedef struct _CPs_EqualiserModule* CP_HEQUALISER;  // This will acutally be implemented as a CPs_EqualiserModule*

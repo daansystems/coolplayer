@@ -32,6 +32,7 @@ struct _CPs_CircleBuffer;
 
 ////////////////////////////////////////////////////////////////////////////////
 // Stream functions
+
 typedef struct _CPs_CircleBuffer* CP_HCIRCLEBUFFER;
 typedef void (*pfn_CircleBufferUninitialise)(CP_HCIRCLEBUFFER bBuffer);
 //
@@ -49,26 +50,27 @@ typedef BOOL (*pfn_CircleIsComplete)(CP_HCIRCLEBUFFER bBuffer);
 // Circle Buffer
 typedef struct _CPs_CircleBuffer
 {
-    // Public functions
-    pfn_CircleBufferUninitialise Uninitialise;
-    pfn_CircleBufferWrite Write;
-    pfn_CircleBufferRead Read;
-    pfn_CircleFlush Flush;
-    pfn_CircleGetUsedSpace GetUsedSize;
-    pfn_CircleGetFreeSpace GetFreeSize;
-    pfn_CircleSetComplete SetComplete;
-    pfn_CircleIsComplete IsComplete;
-
-    // Private variables
-    BYTE* m_pBuffer;
-    unsigned int m_iBufferSize;
-    unsigned int m_iReadCursor;
-    unsigned int m_iWriteCursor;
-    HANDLE m_evtDataAvailable;
-    CRITICAL_SECTION m_csCircleBuffer;
-    BOOL m_bComplete;
-
+	// Public functions
+	pfn_CircleBufferUninitialise Uninitialise;
+	pfn_CircleBufferWrite Write;
+	pfn_CircleBufferRead Read;
+	pfn_CircleFlush Flush;
+	pfn_CircleGetUsedSpace GetUsedSize;
+	pfn_CircleGetFreeSpace GetFreeSize;
+	pfn_CircleSetComplete SetComplete;
+	pfn_CircleIsComplete IsComplete;
+	
+	// Private variables
+	BYTE* m_pBuffer;
+	unsigned int m_iBufferSize;
+	unsigned int m_iReadCursor;
+	unsigned int m_iWriteCursor;
+	HANDLE m_evtDataAvailable;
+	CRITICAL_SECTION m_csCircleBuffer;
+	BOOL m_bComplete;
+	
 } CPs_CircleBuffer;
+
 //
 ////////////////////////////////////////////////////////////////////////////////
 

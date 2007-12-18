@@ -29,97 +29,103 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 
-#define CPC_COMMANDTARGET_ALIGN_LEFT	0x1
-#define CPC_COMMANDTARGET_ALIGN_RIGHT	0x2
-#define CPC_COMMANDTARGET_ALIGN_TOP		0x4
-#define CPC_COMMANDTARGET_ALIGN_BOTTOM	0x8
+#define CPC_COMMANDTARGET_ALIGN_LEFT				0x1
+#define CPC_COMMANDTARGET_ALIGN_RIGHT				0x2
+#define CPC_COMMANDTARGET_ALIGN_TOP					0x4
+#define CPC_COMMANDTARGET_ALIGN_BOTTOM				0x8
 ////////////////////////////////////////////////////////////////////////////////
 //
+
 typedef struct _CPs_CommandTarget
 {
-    CPs_Image_WithState* m_pStateImage;
-
-    DWORD m_dwAlign;
-    POINT m_ptOffset;
-    wp_Verb m_pfnVerb;
-
-    void* m_pNext;
-
+	CPs_Image_WithState* m_pStateImage;
+	
+	DWORD m_dwAlign;
+	POINT m_ptOffset;
+	wp_Verb m_pfnVerb;
+	
+	void* m_pNext;
+	
 } CPs_CommandTarget;
+
 //
 //
+
 typedef struct _CPs_Indicator
 {
-    DWORD m_dwAlign;
-    RECT m_rAlign;
-    char* m_pcName;
-
-    void* m_pNext;
-
+	DWORD m_dwAlign;
+	RECT m_rAlign;
+	char* m_pcName;
+	
+	void* m_pNext;
+	
 } CPs_Indicator;
+
 //
 ////////////////////////////////////////////////////////////////////////////////
 
 
 
-#define CPC_SKINVERSION_200		200L
+#define CPC_SKINVERSION_200							200L
 ////////////////////////////////////////////////////////////////////////////////
 //
+
 typedef struct _CPs_Skin
 {
-    DWORD m_dwSkinVersion;
-    COLORREF m_clrTransparent;
-
-    // Playlist
-    HFONT mpl_hfFont;
-    CPs_Image* mpl_pBackground;
-    RECT mpl_rBackground_SourceTile;
-    RECT mpl_rList_Border;
-
-    // List control colours
-    COLORREF mpl_ListTextColour;
-    COLORREF mpl_ListTextColour_Selected;
-    COLORREF mpl_ListTextColour_HotItem;
-    COLORREF mpl_ListHeaderColour;
-
-    // List control
-    CPs_Image* mpl_pListBackground;
-    RECT mpl_rListBackground_SourceTile;
-    CPs_Image* mpl_pListHeader_Up;
-    CPs_Image* mpl_pListHeader_Down;
-    RECT mpl_rListHeader_SourceTile;
-
-    // Scrollbar - Horiz
-    CPs_Image* mpl_pHScrollBar_Bk;
-    RECT mpl_rHScrollBar_Bk_Tile;
-    CPs_Image* mpl_pHScrollBar_TrackUp;
-    CPs_Image* mpl_pHScrollBar_TrackDn;
-    RECT mpl_rHScrollBar_Track_Tile;
-
-    CPs_Image_WithState* mpl_pHScrollBar_Left;
-    CPs_Image_WithState* mpl_pHScrollBar_Right;
-
-    // Scrollbar - Vert
-    CPs_Image* mpl_pVScrollBar_Bk;
-    RECT mpl_rVScrollBar_Bk_Tile;
-    CPs_Image* mpl_pVScrollBar_TrackUp;
-    CPs_Image* mpl_pVScrollBar_TrackDn;
-    RECT mpl_rVScrollBar_Track_Tile;
-
-    CPs_Image_WithState* mpl_pVScrollBar_Up;
-    CPs_Image_WithState* mpl_pVScrollBar_Down;
-
-    // Selection
-    CPs_Image* mpl_pSelection;
-    RECT mpl_rSelection_Tile;
-    CPs_Image* mpl_pFocus;
-    RECT mpl_rFocus_Tile;
-
-    CPs_CommandTarget* mpl_pCommandTargets;
-    SIZE mpl_szMinWindow;
-
-    CPs_Indicator* mpl_pIndicators;
+	DWORD m_dwSkinVersion;
+	COLORREF m_clrTransparent;
+	
+	// Playlist
+	HFONT mpl_hfFont;
+	CPs_Image* mpl_pBackground;
+	RECT mpl_rBackground_SourceTile;
+	RECT mpl_rList_Border;
+	
+	// List control colours
+	COLORREF mpl_ListTextColour;
+	COLORREF mpl_ListTextColour_Selected;
+	COLORREF mpl_ListTextColour_HotItem;
+	COLORREF mpl_ListHeaderColour;
+	
+	// List control
+	CPs_Image* mpl_pListBackground;
+	RECT mpl_rListBackground_SourceTile;
+	CPs_Image* mpl_pListHeader_Up;
+	CPs_Image* mpl_pListHeader_Down;
+	RECT mpl_rListHeader_SourceTile;
+	
+	// Scrollbar - Horiz
+	CPs_Image* mpl_pHScrollBar_Bk;
+	RECT mpl_rHScrollBar_Bk_Tile;
+	CPs_Image* mpl_pHScrollBar_TrackUp;
+	CPs_Image* mpl_pHScrollBar_TrackDn;
+	RECT mpl_rHScrollBar_Track_Tile;
+	
+	CPs_Image_WithState* mpl_pHScrollBar_Left;
+	CPs_Image_WithState* mpl_pHScrollBar_Right;
+	
+	// Scrollbar - Vert
+	CPs_Image* mpl_pVScrollBar_Bk;
+	RECT mpl_rVScrollBar_Bk_Tile;
+	CPs_Image* mpl_pVScrollBar_TrackUp;
+	CPs_Image* mpl_pVScrollBar_TrackDn;
+	RECT mpl_rVScrollBar_Track_Tile;
+	
+	CPs_Image_WithState* mpl_pVScrollBar_Up;
+	CPs_Image_WithState* mpl_pVScrollBar_Down;
+	
+	// Selection
+	CPs_Image* mpl_pSelection;
+	RECT mpl_rSelection_Tile;
+	CPs_Image* mpl_pFocus;
+	RECT mpl_rFocus_Tile;
+	
+	CPs_CommandTarget* mpl_pCommandTargets;
+	SIZE mpl_szMinWindow;
+	
+	CPs_Indicator* mpl_pIndicators;
 } CPs_Skin;
+
 //
 ////////////////////////////////////////////////////////////////////////////////
 extern CPs_Skin* glb_pSkin;

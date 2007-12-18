@@ -34,29 +34,33 @@ CPs_InStream* CP_CreateInStream_Internet(const char* pcFlexiURL, HWND hWndOwner)
 //
 CPs_InStream* CP_CreateInStream(const char* pcFlexiURL, HWND hWndOwner)
 {
-    CPs_InStream* pNewStream = NULL;
-    int iURLLen = strlen(pcFlexiURL);
-
-    if(iURLLen > 5)
-    {
-        char cHeader[6];
-        memcpy(cHeader, pcFlexiURL, 5);
-        cHeader[5] = '\0';
-		if(stricmp(cHeader, "http:") == 0)
-        {
-            pNewStream = CP_CreateInStream_Internet(pcFlexiURL, hWndOwner);
-            if(pNewStream)
-                return pNewStream;
-        }
-    }
-
-    // Try the local file system
-    pNewStream = CP_CreateInStream_LocalFile(pcFlexiURL, hWndOwner);
-    if(pNewStream)
-        return pNewStream;
-
-    return NULL;
+	CPs_InStream* pNewStream = NULL;
+	int iURLLen = strlen(pcFlexiURL);
+	
+	if (iURLLen > 5)
+	{
+		char cHeader[6];
+		memcpy(cHeader, pcFlexiURL, 5);
+		cHeader[5] = '\0';
+		
+		if (stricmp(cHeader, "http:") == 0)
+		{
+			pNewStream = CP_CreateInStream_Internet(pcFlexiURL, hWndOwner);
+			
+			if (pNewStream)
+				return pNewStream;
+		}
+	}
+	
+	// Try the local file system
+	pNewStream = CP_CreateInStream_LocalFile(pcFlexiURL, hWndOwner);
+	
+	if (pNewStream)
+		return pNewStream;
+		
+	return NULL;
 }
+
 //
 //
 //

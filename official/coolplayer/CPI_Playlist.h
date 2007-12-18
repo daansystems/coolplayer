@@ -34,34 +34,34 @@
 //
 typedef enum _CPe_PlayMode
 {
-    pmCurrentItem,
-    pmNextItem,
-    pmPrevItem
+	pmCurrentItem,
+	pmNextItem,
+	pmPrevItem
 } CPe_PlayMode;
 //
 //
 typedef enum _CPe_PlayItemSortElement
 {
-    piseTrackStackPos,
-    piseArtist,
-    piseAlbum,
-    piseTrackName,
-    piseYear,
-    piseComment,
-    piseTrackNum,
-    piseGenre,
-    pisePath,
-    piseFilename,
-    piseLength
+	piseTrackStackPos,
+	piseArtist,
+	piseAlbum,
+	piseTrackName,
+	piseYear,
+	piseComment,
+	piseTrackNum,
+	piseGenre,
+	pisePath,
+	piseFilename,
+	piseLength
 } CPe_PlayItemSortElement;
 //
 //
 typedef enum _CPe_ItemStackState
 {
-    issUnstacked,
-    issPlayed,
-    issStacked_Top,
-    issStacked
+	issUnstacked,
+	issPlayed,
+	issStacked_Top,
+	issStacked
 } CPe_ItemStackState;
 //
 //
@@ -71,9 +71,9 @@ void CPL_DestroyPlaylist(CP_HPLAYLIST hPlaylist);
 //
 void CPL_Empty(CP_HPLAYLIST hPlaylist);
 void CPL_AddDroppedFiles(CP_HPLAYLIST hPlaylist, HDROP hDrop);
-void CPL_AddSingleFile(CP_HPLAYLIST hPlaylist, const char* pcPath, const char* pcTitle);	// Will not check for a playlist
+void CPL_AddSingleFile(CP_HPLAYLIST hPlaylist, const char* pcPath, const char* pcTitle); // Will not check for a playlist
 void CPL_HandleAsyncNotify(CP_HPLAYLIST hPlaylist, WPARAM wParam, LPARAM lParam);
-void CPL_AddFile(CP_HPLAYLIST hPlaylist, const char* pcPath);	// Will add a file or decode a playlist file
+void CPL_AddFile(CP_HPLAYLIST hPlaylist, const char* pcPath); // Will add a file or decode a playlist file
 void CPL_AddDirectory_Recurse(CP_HPLAYLIST hPlaylist, const char *pDirectory);
 void CPL_RemoveItem(CP_HPLAYLIST hPlaylist, CP_HPLAYLISTITEM hItem);
 void CPL_SetActiveItem(CP_HPLAYLIST hPlaylist, CP_HPLAYLISTITEM hItem);
@@ -122,14 +122,14 @@ void CPL_cb_TrackStackChanged();
 
 ////////////////////////////////////////////////////////////////////////////////
 // Worker thread messages
-#define CPPLWT_TERMINATE						(WM_APP+0x001)
-#define CPPLWT_READTAG							(WM_APP+0x002)
-#define CPPLWT_SYNCSHUFFLE						(WM_APP+0x003)
-#define CPPLWT_SETACTIVE						(WM_APP+0x004)
+#define CPPLWT_TERMINATE					(WM_APP+0x001)
+#define CPPLWT_READTAG						(WM_APP+0x002)
+#define CPPLWT_SYNCSHUFFLE					(WM_APP+0x003)
+#define CPPLWT_SETACTIVE					(WM_APP+0x004)
 //
 // Notifies - ensure that these do not clash with those in CPI_Player_Messages.h
-#define CPPLNM_TAGREAD							(WM_APP+0x201)
-#define CPPLNM_SYNCSHUFFLE						(WM_APP+0x202)
-#define CPPLNM_SYNCSETACTIVE					(WM_APP+0x203)
+#define CPPLNM_TAGREAD						(WM_APP+0x201)
+#define CPPLNM_SYNCSHUFFLE					(WM_APP+0x202)
+#define CPPLNM_SYNCSETACTIVE				(WM_APP+0x203)
 //
 ////////////////////////////////////////////////////////////////////////////////

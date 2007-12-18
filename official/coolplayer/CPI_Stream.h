@@ -33,12 +33,13 @@ struct _CPs_InStream;
 
 ////////////////////////////////////////////////////////////////////////////////
 // Stream functions
+
 typedef struct _CPs_InStream* CP_HINSTREAM;
 typedef void (*pfn_StreamUninitialise)(CP_HINSTREAM hStream);
 typedef BOOL (*pfn_StreamRead)(CP_HINSTREAM hStream, void* pDestBuffer, const unsigned int iBytesToRead, unsigned int* piBytesRead);
 typedef void (*pfn_StreamSeek)(CP_HINSTREAM hStream, const unsigned int iNewOffset);
-typedef UINT (*pfn_StreamTell)(CP_HINSTREAM hStream);
-typedef UINT (*pfn_StreamGetLength)(CP_HINSTREAM hStream);
+typedef UINT(*pfn_StreamTell)(CP_HINSTREAM hStream);
+typedef UINT(*pfn_StreamGetLength)(CP_HINSTREAM hStream);
 typedef BOOL (*pfn_StreamIsSeakable)(CP_HINSTREAM hStream);
 //
 ////////////////////////////////////////////////////////////////////////////////
@@ -47,20 +48,22 @@ typedef BOOL (*pfn_StreamIsSeakable)(CP_HINSTREAM hStream);
 
 ////////////////////////////////////////////////////////////////////////////////
 // CoDec module
+
 typedef struct _CPs_InStream
 {
-    // Public functions
-    pfn_StreamUninitialise Uninitialise;
-    pfn_StreamRead Read;
-    pfn_StreamSeek Seek;
-    pfn_StreamTell Tell;
-    pfn_StreamGetLength GetLength;
-    pfn_StreamIsSeakable IsSeekable;
-
-    // Public variables
-    void* m_pModuleCookie;	 // This is a pointer to any private data the module may want to maintain
-
+	// Public functions
+	pfn_StreamUninitialise Uninitialise;
+	pfn_StreamRead Read;
+	pfn_StreamSeek Seek;
+	pfn_StreamTell Tell;
+	pfn_StreamGetLength GetLength;
+	pfn_StreamIsSeakable IsSeekable;
+	
+	// Public variables
+	void* m_pModuleCookie;  // This is a pointer to any private data the module may want to maintain
+	
 } CPs_InStream;
+
 //
 ////////////////////////////////////////////////////////////////////////////////
 CPs_InStream* CP_CreateInStream(const char* pcFlexiURL, HWND hWndOwner);

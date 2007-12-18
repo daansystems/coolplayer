@@ -25,6 +25,6 @@
 
 
 ////////////////////////////////////////////////////////////////////////////////
-//	Some basic string utility stuff
+// Some basic string utility stuff
 unsigned int STR_AllocSetString(char** ppcDest, const char* pcSource, const BOOL bFreeExisting);
 

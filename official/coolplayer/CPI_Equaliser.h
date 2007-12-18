@@ -43,18 +43,19 @@ typedef void (*pfnEQ_ApplyEQToBlock_Inplace)(CP_HEQUALISER pModule, void* pPCMBl
 // Output module
 typedef struct _CPs_EqualiserModule
 {
-    // Public functions
-    pfnEQ_Initialise Initialise;			// Called by engine only
-    pfnEQ_Uninitialise Uninitialise;		// Called by engine only
-    pfnEQ_ApplySettings ApplySettings;		// Called by engine only
-    pfnEQ_ApplyEQToBlock_Inplace ApplyEQToBlock_Inplace;	// Called by output module
-
-    // Public variables
-
-    // Private variables
-    void* m_pModuleCookie;	 // This is a pointer to any private data the module may want to maintain
-
+	// Public functions
+	pfnEQ_Initialise Initialise;   // Called by engine only
+	pfnEQ_Uninitialise Uninitialise;  // Called by engine only
+	pfnEQ_ApplySettings ApplySettings;  // Called by engine only
+	pfnEQ_ApplyEQToBlock_Inplace ApplyEQToBlock_Inplace; // Called by output module
+	
+	// Public variables
+	
+	// Private variables
+	void* m_pModuleCookie;  // This is a pointer to any private data the module may want to maintain
+	
 } CPs_EqualiserModule;
+
 //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -62,7 +63,7 @@ typedef struct _CPs_EqualiserModule
 
 ////////////////////////////////////////////////////////////////////////////////
 // Initialisers
-void CPI_Player_Equaliser_Initialise_Basic(CPs_EqualiserModule* pModule);		// delux EQ
+void CPI_Player_Equaliser_Initialise_Basic(CPs_EqualiserModule* pModule);  // delux EQ
 ////////////////////////////////////////////////////////////////////////////////
 
 

@@ -30,27 +30,32 @@
 //
 unsigned int STR_AllocSetString(char** ppcDest, const char* pcSource, const BOOL bFreeExisting)
 {
-    if(bFreeExisting == TRUE && *ppcDest)
-        free(*ppcDest);
-
-    if(pcSource)
-    {
-        unsigned int uStringLength;
-
-        uStringLength = strlen(pcSource) + 1;
-        *ppcDest = (char*)malloc(uStringLength);
-        if (!*ppcDest)
-        {
-            // Failed to allocate memory, a memcpy here would be fatal.
-            return 0;
-        }
-        memcpy(*ppcDest, pcSource, uStringLength);
-        return uStringLength;
-    }
-
-    *ppcDest = NULL;
-    return 0;
+	if (bFreeExisting == TRUE && *ppcDest)
+		free(*ppcDest);
+		
+	if (pcSource)
+	{
+		unsigned int uStringLength;
+		
+		uStringLength = strlen(pcSource) + 1;
+		*ppcDest = (char*)malloc(uStringLength);
+		
+		if (!*ppcDest)
+		{
+			// Failed to allocate memory, a memcpy here would be fatal.
+			return 0;
+		}
+		
+		memcpy(*ppcDest, pcSource, uStringLength);
+		
+		return uStringLength;
+	}
+	
+	*ppcDest = NULL;
+	
+	return 0;
 }
+
 //
 //
 //
