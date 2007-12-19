@@ -228,7 +228,7 @@ void CPP_EBSC_ApplyEQToBlock_Inplace(CPs_EqualiserModule* pModule, void* _pPCMBl
 		}
 		
 		// Encode sample
-		iThisSample_EQ = MAKELONG(CIC_TRUNCATESHORT(iThisSample_right), CIC_TRUNCATESHORT(iThisSample_left));
+		iThisSample_EQ = MAKELONG(CIC_TRUNCATESHORT(iThisSample_left), CIC_TRUNCATESHORT(iThisSample_right));
 		
 		//   *(short*)&iThisSample_EQ = CIC_TRUNCATESHORT(iThisSample_left);
 		//   *((short*)&iThisSample_EQ + 1) = CIC_TRUNCATESHORT(iThisSample_right);
