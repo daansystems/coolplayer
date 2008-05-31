@@ -241,12 +241,12 @@ options_windowproc(HWND hwndDlg, UINT msg, WPARAM wParam, LPARAM lParam)
 				{
 					int     itemcounter =
 						GetMenuItemCount(GetSubMenu
-										 (globals.main_menu_popup, 4));
+										 (globals.main_menu_popup, SKIN_SUBMENU_INDEX));
 					int     teller;
 					
 					for (teller = 0; teller < itemcounter - 1; teller++)
 					{
-						RemoveMenu(GetSubMenu(globals.main_menu_popup, 4), 0,
+						RemoveMenu(GetSubMenu(globals.main_menu_popup, SKIN_SUBMENU_INDEX), 0,
 								   MF_BYPOSITION);
 					}
 					

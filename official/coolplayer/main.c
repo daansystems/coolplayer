@@ -37,9 +37,9 @@ void    main_skin_select_menu(char *name)
 {
 	int     teller;
 	char    skinstring[MAX_PATH];
-	HMENU   popje = GetSubMenu(globals.main_menu_popup, 4);
+	HMENU   popje = GetSubMenu(globals.main_menu_popup, SKIN_SUBMENU_INDEX);
 	int     itemcounter =
-		GetMenuItemCount(GetSubMenu(globals.main_menu_popup, 4));
+		GetMenuItemCount(GetSubMenu(globals.main_menu_popup, SKIN_SUBMENU_INDEX));
 	    
 	for (teller = 0; teller < itemcounter; teller++)
 	{
@@ -81,13 +81,13 @@ void    main_skin_add_to_menu(char *name)
 
 	MENUITEMINFO menuinfo;
 	int     itemcounter =
-		GetMenuItemCount(GetSubMenu(globals.main_menu_popup, 4));
+		GetMenuItemCount(GetSubMenu(globals.main_menu_popup, SKIN_SUBMENU_INDEX));
 	int     teller;
 	
 	for (teller = 0; teller < itemcounter; teller++)
 	{
 		char    skinstring[MAX_PATH];
-		GetMenuString(GetSubMenu(globals.main_menu_popup, 4), teller,
+		GetMenuString(GetSubMenu(globals.main_menu_popup, SKIN_SUBMENU_INDEX), teller,
 					  skinstring, MAX_PATH, MF_BYPOSITION);
 		              
 		if (strcmp(name, skinstring) == 0)
@@ -118,7 +118,7 @@ void    main_skin_add_to_menu(char *name)
 	               
 	if (itemcounter > options.remember_skin_count)
 	{
-		RemoveMenu(GetSubMenu(globals.main_menu_popup, 4), 0,
+		RemoveMenu(GetSubMenu(globals.main_menu_popup, SKIN_SUBMENU_INDEX), 0,
 				   MF_BYPOSITION);
 	}
 }
