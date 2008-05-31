@@ -1,0 +1,309 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.K.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_UK
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_MAINDOWN            BITMAP  DISCARDABLE     "res\\main_down.bmp"
+IDB_MAINBIGFONT         BITMAP  DISCARDABLE     "res\\main_bigfont.bmp"
+IDB_MAINSMALLFONT       BITMAP  DISCARDABLE     "res\\main_smallfont.bmp"
+IDB_MAINUP              BITMAP  DISCARDABLE     "res\\main_up.bmp"
+IDB_SYSICON             BITMAP  DISCARDABLE     "res\\SysIcon.bmp"
+IDB_SYSICON_MASK        BITMAP  DISCARDABLE     "res\\SysIcon_Mask.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+APP_ICON                ICON    DISCARDABLE     "res\\coolplayer.ico"
+IDI_ICON_MP3            ICON    DISCARDABLE     "res\\mp3.ico"
+IDI_ICON_PLS            ICON    DISCARDABLE     "res\\pls.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MENU1 MENU DISCARDABLE 
+BEGIN
+    POPUP "Nothing here"
+    BEGIN
+        MENUITEM "&Open...\tL",                 MENU_OPENFILE
+        MENUITEM "Open &URL...",                MENU_OPENLOC
+        MENUITEM "&Add...\tA",                  MENU_ADDFILE
+        MENUITEM SEPARATOR
+        MENUITEM "Playlist &Editor\tP",         MENU_PLAYLIST
+        POPUP "&Skin"
+        BEGIN
+            MENUITEM "Default",                     MENU_SKIN_DEFAULT
+        END
+        MENUITEM SEPARATOR
+        POPUP "Play &Control"
+        BEGIN
+            MENUITEM "&Play\tX",                    ID_PLAY
+            MENUITEM "&Stop\tV",                    ID_STOP
+            MENUITEM "Pa&use\tC",                   ID_PAUSE
+            MENUITEM "&Next\tB",                    ID_NEXT
+            MENUITEM "Pre&vious\tZ",                ID_PREVIOUS
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "O&ptions",                    MENU_OPTIONS
+        MENUITEM SEPARATOR
+        MENUITEM "A&bout...\tF1",               MENU_ABOUT
+        MENUITEM "E&xit...\tESC",               MENU_EXIT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// RAW
+//
+
+IDR_ABOUT1              RAW     DISCARDABLE     "res\\about.txt"
+IDR_KEYBOARD            RAW     DISCARDABLE     "res\\keyboard.txt"
+IDR_USAGE               RAW     DISCARDABLE     "res\\usage.txt"
+IDR_CHANGES             RAW     DISCARDABLE     "res\\changes.txt"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUT DIALOGEX 0, 0, 257, 194
+STYLE DS_MODALFRAME | DS_NOIDLEMSG | DS_SETFOREGROUND | DS_NOFAILCREATE | 
+    DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About CoolPlayer"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "About",IDC_ABOUTRADIO,"Button",BS_AUTORADIOBUTTON | 
+                    BS_PUSHLIKE,31,7,73,12
+    CONTROL         "Keyboard Shortcuts",IDC_KEYBOARDRADIO,"Button",
+                    BS_AUTORADIOBUTTON | BS_PUSHLIKE,104,7,73,12
+    ICON            APP_ICON,IDC_ABOUTICON,6,7,20,20,0,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_ABOUTTEXT,32,19,218,138,ES_MULTILINE | ES_READONLY | 
+                    WS_VSCROLL | WS_HSCROLL
+    DEFPUSHBUTTON   "Close",IDOK,109,175,38,12
+    CONTROL         "Spin1",IDC_SPIN1,"msctls_updown32",UDS_ARROWKEYS,12,159,
+                    12,13
+    PUSHBUTTON      "http://coolplayer.sourceforge.net",IDC_WEBSITE,52,159,
+                    154,13
+    CONTROL         "Changes",IDC_CHANGELOG,"Button",BS_AUTORADIOBUTTON | 
+                    BS_PUSHLIKE,177,7,73,12
+END
+
+IDD_OPTIONS DIALOG DISCARDABLE  0, 0, 250, 294
+STYLE DS_MODALFRAME | DS_SETFOREGROUND | DS_3DLOOK | DS_CENTER | WS_POPUP | 
+    WS_CAPTION | WS_SYSMENU
+CAPTION "CoolPlayer Options"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "General",-1,7,1,236,185
+    CONTROL         "Always on top",IDC_ONTOP,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,16,13,107,10
+    CONTROL         "Exit after playing",IDC_AUTOEXIT,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,16,25,107,10
+    CONTROL         "Rotate systemtray icon",IDC_ROTATE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,16,37,107,10
+    CONTROL         "Scroll Songtitle",IDC_SCROLLTITLE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,16,49,107,10
+    CONTROL         "Allow file once in playlist",IDC_FILEONCE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,16,61,107,10
+    CONTROL         "Autoplay on startup",IDC_AUTOPLAY,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,16,73,107,10
+    CONTROL         "Allow multiple instances",IDC_MULTIPLEINSTANCES,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,16,85,107,10
+    CONTROL         "Show remaining time",IDC_REMAINING,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,16,97,106,10
+    CONTROL         "Show on taskbar",IDC_TASKBAR,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,16,110,106,10
+    CONTROL         "Read ID3 Tag (if any)",IDC_READTAG,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,131,13,106,10
+    CONTROL         "Read ID3 Tag of selected",IDC_READSELTAG,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,131,25,106,10
+    CONTROL         "Support ID3v2",IDC_SUPPORTID3_V2,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,131,37,106,10
+    CONTROL         "Prefer native OGG tags",IDC_PREFERNATIVEOGGTAGS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,131,49,106,10
+    CONTROL         "Load ID3 tags in background ",IDC_READID3INBACKGROUND,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,131,61,106,10
+    CONTROL         "Work out track lengths",IDC_READTRACKTIME,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,131,73,106,10
+    CONTROL         "Easy move",IDC_EASYMOVE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,131,85,106,10
+    CONTROL         "Remember playlist",IDC_REMEMBERPLS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,131,97,106,10
+    CONTROL         "Remember last played",IDC_REMSONG,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,131,110,106,10
+    EDITTEXT        IDC_DELAYTIME,17,149,24,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    ES_NUMBER
+    CONTROL         "Spin1",IDC_DELAYTIMES,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS | 
+                    UDS_NOTHOUSANDS,61,140,11,9
+    LTEXT           "Track Delay (sec)",-1,43,151,57,8
+    EDITTEXT        IDC_REMSKINVAL,131,150,23,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | ES_NUMBER
+    CONTROL         "Spin1",IDC_REMEMBERSKIN,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | 
+                    UDS_ARROWKEYS | UDS_NOTHOUSANDS,155,138,11,9
+    LTEXT           "Skinlist length",-1,156,152,46,11
+    PUSHBUTTON      "Flush",IDC_FLUSH_SKINLIST,201,151,32,11
+    PUSHBUTTON      "Register Filetypes",IDC_REGFILETYPE,11,167,113,13
+    PUSHBUTTON      "Add Icon to StartMenu && Desktop",IDC_ADDICONS,126,167,
+                    113,13,BS_CENTER
+    GROUPBOX        "Output",-1,7,190,236,48
+    COMBOBOX        IDC_OUTPUT,15,201,222,81,CBS_DROPDOWNLIST | WS_TABSTOP
+    RTEXT           "Volume controls",-1,17,218,56,12,SS_CENTERIMAGE
+    COMBOBOX        IDC_MIXER,77,218,160,81,CBS_DROPDOWNLIST | WS_TABSTOP
+    GROUPBOX        "Skin",-1,7,240,236,33,WS_GROUP
+    CONTROL         "Player",IDC_PLAYERSKINCHECK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,13,253,35,10
+    EDITTEXT        IDC_LOADSKIN,51,251,141,13,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "Open",IDC_SKINBUTTON,197,251,40,13
+    DEFPUSHBUTTON   "OK",IDOK,139,277,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,193,277,50,14
+END
+
+IDD_URL DIALOG DISCARDABLE  0, 0, 311, 44
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Enter URL"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_URL,7,7,297,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,197,25,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,254,25,50,14
+END
+
+IDD_QUICKFIND DIALOG DISCARDABLE  0, 0, 221, 109
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Quick Find"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_FND_TEXT,7,20,207,14,ES_LOWERCASE | ES_AUTOHSCROLL
+    CONTROL         "Titles",IDC_QFND_TITLES,"Button",BS_AUTORADIOBUTTON,13,
+                    52,84,10
+    CONTROL         "Artist Names",IDC_QFND_ARTISTS,"Button",
+                    BS_AUTORADIOBUTTON,109,52,84,10
+    CONTROL         "Album Names",IDC_QFND_ALBUMS,"Button",
+                    BS_AUTORADIOBUTTON,13,66,84,10
+    DEFPUSHBUTTON   "Close",IDOK,164,88,50,14
+    CTEXT           "Find Text",-1,7,7,207,11,SS_CENTERIMAGE
+    GROUPBOX        "Look in",-1,7,42,207,43
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUT, DIALOG
+    BEGIN
+        LEFTMARGIN, 6
+        RIGHTMARGIN, 250
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 187
+    END
+
+    IDD_OPTIONS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 243
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 291
+    END
+
+    IDD_URL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 304
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 39
+    END
+
+    IDD_QUICKFIND, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 214
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 102
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// SKIN
+//
+
+IDR_DEFAULTSKIN         SKIN    DISCARDABLE     "res\\Default.CPSkin"
+#endif    // English (U.K.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
