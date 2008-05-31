@@ -1789,10 +1789,35 @@ void CPLI_ReadTag_OGG(CPs_PlaylistItem* pItem)
 		
 		for (iCommentIDX = 0; iCommentIDX < pComment->comments; iCommentIDX++)
 		{
-			char cTag[128];
-			char cValue[2048];
-			
-			if (sscanf(pComment->user_comments[iCommentIDX], " %[^= ] = %[^=]", cTag, cValue) == 2)
+			char* cTag = malloc(pComment->comment_lengths[iCommentIDX]);
+			char* cValue = malloc(pComment->comment_lengths[iCommentIDX]);
+
+			// find "=" character to parse tag and value data		
+			{
+				int i = 0;
+				int equals_pos = 0;
+				char* comment;
+
+				while (i < pComment->comment_lengths[iCommentIDX])
+				{
+					comment = pComment->user_comments[iCommentIDX];
+					if (comment[i] == '=')
+					{
+						equals_pos = i;
+						break;
+					}
+
+					i++;
+				}
+
+				strncpy(cTag, comment, equals_pos+1);
+				strncpy(cValue, comment+equals_pos+1, pComment->comment_lengths[iCommentIDX] - equals_pos);
+			}
+
+			// SECURITY: rewritten due to exploit at
+			// http://www.frsirt.com/english/advisories/2008/0008
+			// original code used following commented line
+            //if(sscanf(pComment->user_comments[iCommentIDX], " %[^= ] = %[^=]", cTag, cValue) == 2)
 			{
 				if (stricmp(cTag, "TITLE") == 0)
 					CPLI_OGG_DecodeString(&pItem->m_pcTrackName, cValue);
@@ -1821,7 +1846,11 @@ void CPLI_ReadTag_OGG(CPs_PlaylistItem* pItem)
 					}
 				}
 			}
-		}
+
+			free(cTag);
+			free(cValue);
+
+		} // end for loop
 	}
 	
 	ov_clear(&vorbisfileinfo);
