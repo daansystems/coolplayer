@@ -50,8 +50,11 @@ typedef void* CP_HSYSICON;
 #include "CLV_ListView.h"
 #include "String.h"
 
+// menu id's and locations
+#define SKIN_SUBMENU_INDEX		5
+
 // Handle to player
-#define CP_BUILD_NUMBER					217
+#define CP_BUILD_NUMBER					218
 #define CIC_HTTPHEADER					"http://"
 #define CIC_HTTPSHEADER					"https://"
 #define CIC_FTPHEADER					"ftp://"
