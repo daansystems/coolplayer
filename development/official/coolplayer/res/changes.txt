@@ -1,5 +1,8 @@
 CoolPlayer Revision History
 ===========================
+Version 219
+ + Fixed potential buffer overflow when reading OGG tags
+
 Version 218
  + Fixed channels being swapped when toggling EQ
  + Fixed player skin not saving properly
