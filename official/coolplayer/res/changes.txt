@@ -1,5 +1,9 @@
 CoolPlayer Revision History
 ===========================
+Version 218
+ + Fixed channels being swapped when toggling EQ
+ + Fixed player skin not saving properly
+
 Version 217
  + Now loads .m3u playlists using "Open URL"
  + Fixed using -h,-?,-help on the command line killing existing instances
