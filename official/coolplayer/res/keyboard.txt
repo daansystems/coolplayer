@@ -31,7 +31,7 @@ H		Shuffle
 F1		About
 SHIFT+F11	Reload Skin
 SHIFT+F12	Skinmaker-mode
-ALT+F4/ESC	Exit
+ALT+F4/ESC	Exit (Not playlist)
 
 Playlist
 --------

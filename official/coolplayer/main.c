@@ -224,7 +224,7 @@ void main_update_title_text()
 	if (hItem_Current)
 		pcText = CPLI_GetTrackName(hItem_Current);
 	else
-		pcText = "CoolPlayer";
+		pcText = CP_COOLPLAYER;
 		
 	stringlen = strlen(pcText);
 	
@@ -2045,13 +2045,13 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 	
 	if (waveOutGetNumDevs() < 1)
 	{
-		MessageBox(GetDesktopWindow(), "No audio devices in this system", "CoolPlayer", MB_ICONSTOP | MB_OK);
+		MessageBox(GetDesktopWindow(), "No audio devices in this system", CP_COOLPLAYER, MB_ICONSTOP | MB_OK);
 		return -1;
 	}
 	
 	options_read();
 	
-	hMutexOneInstance = CreateMutex(NULL, FALSE, "COOLPLAYER-045FA840-B10D-2G3-3436-006067709674");
+	hMutexOneInstance = CreateMutex(NULL, FALSE, CLC_COOLPLAYER_MUTEX);
 	bAlreadyRuning = (GetLastError() == ERROR_ALREADY_EXISTS
 					  || GetLastError() == ERROR_ACCESS_DENIED);
 	// The call fails with ERROR_ACCESS_DENIED if the Mutex was
@@ -2201,7 +2201,7 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 			globals.m_hPlayer = NULL;
 			hWnd =
 				CreateWindowEx(WS_EX_ACCEPTFILES | WS_EX_TOOLWINDOW,
-							   CLC_COOLPLAYER_WINDOWCLASSNAME, "CoolPlayer",
+							   CLC_COOLPLAYER_WINDOWCLASSNAME, CP_COOLPLAYER,
 							   WS_POPUP | WS_CLIPSIBLINGS,
 							   options.main_window_pos.x,
 							   options.main_window_pos.y, bm.bmWidth,

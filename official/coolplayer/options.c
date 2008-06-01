@@ -620,7 +620,7 @@ options_windowproc(HWND hwndDlg, UINT msg, WPARAM wParam, LPARAM lParam)
 					
 					MessageBox(hwndDlg,
 							   "Filetypes are registered.\nYou can doubleclick a supported file to run CoolPlayer.",
-							   "CoolPlayer", MB_ICONINFORMATION);
+							   CP_COOLPLAYER, MB_ICONINFORMATION);
 					           
 					break;
 				}
@@ -665,7 +665,7 @@ options_windowproc(HWND hwndDlg, UINT msg, WPARAM wParam, LPARAM lParam)
 					CoUninitialize();
 					MessageBox(hwndDlg,
 							   "An icon for CoolPlayer has been created in the StartMenu and Desktop.",
-							   "CoolPlayer", MB_ICONINFORMATION);
+							   CP_COOLPLAYER, MB_ICONINFORMATION);
 					break;
 				}
 			}

@@ -1,5 +1,8 @@
 CoolPlayer Revision History
 ===========================
+Version 220
+ + Playlist is now restored when toggling if it was previously minimized
+
 Version 219
  + Fixed potential buffer overflow when reading OGG tags
  + Fixed open file dialog not being modal

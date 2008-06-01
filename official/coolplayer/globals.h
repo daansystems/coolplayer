@@ -54,10 +54,17 @@ typedef void* CP_HSYSICON;
 #define SKIN_SUBMENU_INDEX		5
 
 // Handle to player
-#define CP_BUILD_NUMBER					219
+#define CP_BUILD_NUMBER					220
+#define CP_COOLPLAYER					"CoolPlayer"
 #define CIC_HTTPHEADER					"http://"
 #define CIC_HTTPSHEADER					"https://"
 #define CIC_FTPHEADER					"ftp://"
+
+#ifdef _DEBUG
+#define CLC_COOLPLAYER_MUTEX			"COOLPLAYER-045FA840-B10D-2G3-3436-006067709674D"
+#else
+#define CLC_COOLPLAYER_MUTEX			"COOLPLAYER-045FA840-B10D-2G3-3436-006067709674"
+#endif
 
 #define WM_NOTIFYICON					WM_USER
 #define NOTIFY_ICON_ID					4567

@@ -524,36 +524,22 @@ CPs_CoDecModule* OpenCoDec(CPs_PlayerContext* pContext, const char* pcFilename)
 	
 	if (dot)
 	{
-		if (CPFA_IsAssociated(&pContext->m_CoDecs[CP_CODEC_WINAMPPLUGIN], extension, &dwCookie) == TRUE)
+		for (iCoDecIDX = CP_CODEC_first; iCoDecIDX <= CP_CODEC_last; iCoDecIDX++)
 		{
-			bOpenSucceeded = pContext->m_CoDecs[CP_CODEC_WINAMPPLUGIN].OpenFile(
-								 &pContext->m_CoDecs[CP_CODEC_WINAMPPLUGIN],
-								 pcFilename,
-								 dwCookie,
-								 pContext->m_pBaseEngineParams->m_hWndNotify);
-			                     
-			if (bOpenSucceeded == TRUE)
-				return &pContext->m_CoDecs[CP_CODEC_WINAMPPLUGIN];
-				
+			if (CPFA_IsAssociated(&pContext->m_CoDecs[iCoDecIDX], extension, &dwCookie) == TRUE)
+			{
+				bOpenSucceeded = pContext->m_CoDecs[iCoDecIDX].OpenFile(
+									 &pContext->m_CoDecs[iCoDecIDX],
+									 pcFilename,
+									 dwCookie,
+									 pContext->m_pBaseEngineParams->m_hWndNotify);
+									 
+				if (bOpenSucceeded == TRUE)
+					return &pContext->m_CoDecs[iCoDecIDX];		
+			}
 		}
 	}
-	
-	
-	// Find a CoDec that wants this association
-	
-	for (iCoDecIDX = CP_CODEC_OGG; iCoDecIDX <= CP_CODEC_last; iCoDecIDX++)
-	{
-		bOpenSucceeded = pContext->m_CoDecs[iCoDecIDX].OpenFile(&pContext->m_CoDecs[iCoDecIDX],
-						 pcFilename,
-						 dwCookie,
-						 pContext->m_pBaseEngineParams->m_hWndNotify);
-		                 
-		if (bOpenSucceeded == TRUE)
-			return &pContext->m_CoDecs[iCoDecIDX];
-			
-			
-	}
-	
+
 	return NULL;
 }
 

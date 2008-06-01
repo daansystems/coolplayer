@@ -26,6 +26,7 @@
 #define CP_CODEC_OGG				0x1
 #define CP_CODEC_WAV				0x2
 #define CP_CODEC_MPEG				0x3
+#define CP_CODEC_first				CP_CODEC_WINAMPPLUGIN
 #define CP_CODEC_last				CP_CODEC_MPEG
 
 // Set the CoDec to use if we cannot match a file by it's extension
@@ -37,6 +38,7 @@
 #define CP_OUTPUT_WAVE				0x0
 #define CP_OUTPUT_DIRECTSOUND		0x1
 #define CP_OUTPUT_FILE				0x2
+#define CP_OUTPUT_first				CP_OUTPUT_WAVE
 #define CP_OUTPUT_last				CP_OUTPUT_FILE
 
 

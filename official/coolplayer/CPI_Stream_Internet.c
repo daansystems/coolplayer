@@ -87,7 +87,7 @@ unsigned int _stdcall EP_FillerThread(void* _pContext)
 	PostMessage(pContext->m_hWndNotify, CPNM_SETSTREAMINGSTATE, (WPARAM)TRUE, (LPARAM)0);
 	
 	// Check that we can open this file
-	hInternet = InternetOpen("CoolPlayer",
+	hInternet = InternetOpen(CP_COOLPLAYER,
 							 INTERNET_OPEN_TYPE_PRECONFIG,
 							 NULL, NULL, 0L);
 	                         

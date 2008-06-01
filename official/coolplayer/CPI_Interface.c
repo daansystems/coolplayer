@@ -220,7 +220,12 @@ void IF_SetVisible(CP_HINTERFACE hInterface, const BOOL bVisible)
 	pState = (CPs_InterfaceWindowState*)hInterface;
 	CP_CHECKOBJECT(pState);
 	
+	if (bVisible)
+		if (IsIconic(pState->m_hWnd))
+			ShowWindow(pState->m_hWnd, SW_RESTORE);
+
 	ShowWindow(pState->m_hWnd, bVisible ? SW_SHOW : SW_HIDE);
+
 }
 
 //
