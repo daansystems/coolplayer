@@ -127,20 +127,20 @@ STYLE DS_MODALFRAME | DS_NOIDLEMSG | DS_SETFOREGROUND | DS_NOFAILCREATE |
 CAPTION "About CoolPlayer"
 FONT 8, "MS Sans Serif"
 BEGIN
+    ICON            APP_ICON,IDC_ABOUTICON,6,7,20,20,0,WS_EX_TRANSPARENT
+    CONTROL         "Spin1",IDC_SPIN1,"msctls_updown32",UDS_ARROWKEYS,13,167,
+                    11,13
     CONTROL         "&About",IDC_ABOUTRADIO,"Button",BS_AUTORADIOBUTTON | 
                     BS_PUSHLIKE,31,7,70,15
     CONTROL         "&Keyboard Shortcuts",IDC_KEYBOARDRADIO,"Button",
                     BS_AUTORADIOBUTTON | BS_PUSHLIKE,105,7,92,15
-    ICON            APP_ICON,IDC_ABOUTICON,6,7,21,20,0,WS_EX_TRANSPARENT
-    EDITTEXT        IDC_ABOUTTEXT,31,27,240,153,ES_MULTILINE | ES_READONLY | 
-                    WS_VSCROLL | WS_HSCROLL
-    DEFPUSHBUTTON   "C&lose",IDOK,201,189,70,15
-    CONTROL         "Spin1",IDC_SPIN1,"msctls_updown32",UDS_ARROWKEYS,13,167,
-                    11,13
-    PUSHBUTTON      "http://coolplayer.sourceforge.net",IDC_WEBSITE,31,189,
-                    155,15
     CONTROL         "C&hanges",IDC_CHANGELOG,"Button",BS_AUTORADIOBUTTON | 
                     BS_PUSHLIKE,201,7,70,15
+    EDITTEXT        IDC_ABOUTTEXT,31,27,240,153,ES_MULTILINE | ES_READONLY | 
+                    WS_VSCROLL | WS_HSCROLL
+    PUSHBUTTON      "http://coolplayer.sourceforge.net",IDC_WEBSITE,31,189,
+                    155,15
+    DEFPUSHBUTTON   "C&lose",IDOK,201,189,70,15
 END
 
 IDD_OPTIONS DIALOG DISCARDABLE  0, 0, 250, 283
@@ -168,6 +168,8 @@ BEGIN
                     BS_AUTOCHECKBOX | WS_TABSTOP,16,97,106,10
     CONTROL         "Show on taskbar",IDC_TASKBAR,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,16,110,106,10
+    PUSHBUTTON      "Register Filetypes",IDC_REGFILETYPE,16,128,90,15
+    PUSHBUTTON      "Add to Start Menu",IDC_ADDICONS,16,144,90,15,BS_CENTER
     CONTROL         "Read ID3 Tag (if any)",IDC_READTAG,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,131,13,106,10
     CONTROL         "Read ID3 Tag of selected",IDC_READSELTAG,"Button",
@@ -199,8 +201,6 @@ BEGIN
                     UDS_ARROWKEYS | UDS_NOTHOUSANDS,151,145,11,9
     LTEXT           "Skinlist length",-1,156,145,46,11
     PUSHBUTTON      "Flush",IDC_FLUSH_SKINLIST,205,143,32,15
-    PUSHBUTTON      "Register Filetypes",IDC_REGFILETYPE,16,128,90,15
-    PUSHBUTTON      "Add to Start Menu",IDC_ADDICONS,16,144,90,15,BS_CENTER
     GROUPBOX        "Output",-1,7,171,236,48
     COMBOBOX        IDC_OUTPUT,15,182,222,81,CBS_DROPDOWNLIST | WS_TABSTOP
     LTEXT           "Volume controls",-1,15,199,56,12,SS_CENTERIMAGE
@@ -219,13 +219,13 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Open URL"
 FONT 8, "MS Sans Serif"
 BEGIN
+    ICON            IDI_ICON_MP3,IDC_URL_ICON,7,7,20,20
+    LTEXT           "Type the URL you would like to play. Supported formats are MP3 and OGG streaming, and M3U playlists.",
+                    IDC_URL_DESCRIPTION,44,7,184,24
+    LTEXT           "&URL:",IDC_URL_STATIC,7,36,18,8
     EDITTEXT        IDC_URL,44,34,184,15,ES_AUTOHSCROLL
     DEFPUSHBUTTON   "OK",IDOK,98,62,60,15
     PUSHBUTTON      "Cancel",IDCANCEL,168,62,60,15
-    LTEXT           "&URL:",IDC_URL_STATIC,7,36,18,8
-    ICON            IDI_ICON_MP3,IDC_URL_ICON,7,7,21,20
-    LTEXT           "Type the URL you would like to play. Supported formats are MP3 and OGG streaming, and M3U playlists.",
-                    IDC_URL_DESCRIPTION,44,7,184,24
 END
 
 IDD_QUICKFIND DIALOG DISCARDABLE  0, 0, 221, 116
@@ -233,7 +233,9 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 CAPTION "Quick Find"
 FONT 8, "MS Sans Serif"
 BEGIN
+    CTEXT           "Find Text",-1,7,7,207,11,SS_CENTERIMAGE
     EDITTEXT        IDC_FND_TEXT,7,20,207,15,ES_LOWERCASE | ES_AUTOHSCROLL
+    GROUPBOX        "Look in",-1,7,42,207,44
     CONTROL         "&Titles",IDC_QFND_TITLES,"Button",BS_AUTORADIOBUTTON,13,
                     54,84,10
     CONTROL         "Artist &Names",IDC_QFND_ARTISTS,"Button",
@@ -241,8 +243,6 @@ BEGIN
     CONTROL         "&Album Names",IDC_QFND_ALBUMS,"Button",
                     BS_AUTORADIOBUTTON,13,70,84,10
     DEFPUSHBUTTON   "C&lose",IDOK,154,94,60,15
-    CTEXT           "Find Text",-1,7,7,207,11,SS_CENTERIMAGE
-    GROUPBOX        "Look in",-1,7,42,207,44
 END
 
 
