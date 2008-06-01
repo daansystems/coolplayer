@@ -292,6 +292,7 @@ END
 //
 
 IDR_DEFAULTSKIN         SKIN    DISCARDABLE     "res\\Default.CPSkin"
+1	24	DISCARDABLE	"res\\coolplayer.exe.manifest"
 #endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 

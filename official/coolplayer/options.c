@@ -181,10 +181,7 @@ options_windowproc(HWND hwndDlg, UINT msg, WPARAM wParam, LPARAM lParam)
 			return TRUE;
 		}
 		
-		case WM_CLOSE:
-			EndDialog(hwndDlg, 1);
-			return TRUE;
-			
+
 		case WM_COMMAND:
 		
 			switch (LOWORD(wParam))
@@ -257,7 +254,7 @@ options_windowproc(HWND hwndDlg, UINT msg, WPARAM wParam, LPARAM lParam)
 				case IDCANCEL:
 					EndDialog(hwndDlg, 1);
 					break;
-					
+
 				case IDOK:
 				{
 					BOOL    duplicatesalreadyremoved =

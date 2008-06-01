@@ -1,5 +1,13 @@
 CoolPlayer Revision History
 ===========================
+Version 219
+ + Fixed potential buffer overflow when reading OGG tags
+ + Fixed open file dialog not being modal
+ + Fixed add directory dialog not being modal
+ + Enabled XP visual style support
+ + Fixed bitrate display showing parts of previous songs bitrate
+ + WAV file bitrate is now shown
+
 Version 218
  + Fixed channels being swapped when toggling EQ
  + Fixed player skin not saving properly

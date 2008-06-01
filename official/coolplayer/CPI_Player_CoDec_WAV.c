@@ -208,7 +208,11 @@ BOOL CPP_OMWAV_OpenFile(CPs_CoDecModule* pModule, const char* pcFilename, DWORD 
 		}
 		
 		// Setup file info struct - this is re-read every second
-		pContext->m_FileInfo.m_iBitRate_Kbs = 0;  // Suppress bitrate display
+		// if m_iBitRate_Kbs = 0, bitrate display is suppressed
+		pContext->m_FileInfo.m_iBitRate_Kbs = 
+				(pFormat->wBitsPerSample * pFormat->wf.nChannels * pFormat->wf.nSamplesPerSec) / 1000;
+		
+
 		pContext->m_FileInfo.m_iFreq_Hz = pFormat->wf.nSamplesPerSec;
 		pContext->m_FileInfo.m_bStereo = pFormat->wf.nChannels == 2 ? TRUE : FALSE;
 		pContext->m_FileInfo.m_b16bit = pFormat->wBitsPerSample == 16 ? TRUE : FALSE;

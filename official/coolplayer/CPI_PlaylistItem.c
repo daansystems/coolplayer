@@ -1242,7 +1242,7 @@ void CPLI_CalculateLength_OGG(CPs_PlaylistItem* pItem)
 //
 //
 //
-/** TODO - reformat and check - move all this to separate function **/
+/** // TODO: - reformat and check - move all this to separate function **/
 // at the moment CPI_Player_CoDec_WAV has this same code
 void CPLI_CalculateLength_WAV(CPs_PlaylistItem* pItem)
 {

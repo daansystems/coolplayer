@@ -91,7 +91,8 @@ int main_set_default_skin(void)
 							   "");
 	main_skin_set_struct_value(TimeText, 59, 35, 13, 14, 0, 0, 0, 0, 0,
 							   "");
-	main_skin_set_struct_value(BitrateText, 89, 48, 0, 0, 0, 0, 0, 0, 0,
+
+	main_skin_set_struct_value(BitrateText, 83, 48, 0, 0, 0, 0, 0, 0, 0,
 							   "");
 	main_skin_set_struct_value(FreqText, 125, 48, 0, 0, 0, 0, 0, 0, 0, "");
 	
