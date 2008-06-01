@@ -278,11 +278,6 @@ SOURCE=.\options.c
 # End Source File
 # Begin Source File
 
-SOURCE=.\playlist.c
-# ADD CPP /YX"stdafx.h"
-# End Source File
-# Begin Source File
-
 SOURCE=.\profile.c
 # ADD CPP /YX"stdafx.h"
 # End Source File
