@@ -54,6 +54,7 @@ wp_Verb glb_pfnAllVerbs[] =
 	CPVERB_VolumeDown,
 	
 	CPVERB_OpenFile,
+	CPVERB_AddFile,
 	CPVERB_About,
 	CPVERB_Exit,
 	
@@ -65,8 +66,6 @@ wp_Verb glb_pfnAllVerbs[] =
 	CPVERB_PlaylistMinimise,
 	CPVERB_PlaylistMaximise,
 	
-	/** TODO - move next to OpenFile ? **/
-	CPVERB_AddFile,
 	NULL
 };
 //
@@ -496,7 +495,9 @@ void CPVERB_About(const CPe_VerbAction enAction, void* _pParam)
 void CPVERB_Exit(const CPe_VerbAction enAction, void* _pParam)
 {
 	if (enAction == vaDoVerb)
-		DestroyWindow(windows.wnd_main);
+	{
+		DestroyWindow(_pParam);
+	}
 	else if (enAction == vaQueryName)
 	{
 		CPs_VerbQueryName* pParam = (CPs_VerbQueryName*)_pParam;
@@ -585,7 +586,7 @@ void CPVERB_AddDirectory(const CPe_VerbAction enAction, void* _pParam)
 		int image = 0;
 		char directorychoice[MAX_PATH];
 		
-		browseinfo.hwndOwner = (HWND)_pParam;
+		browseinfo.hwndOwner = (HWND)windows.wnd_main;
 		browseinfo.pidlRoot = NULL;
 		browseinfo.pszDisplayName = directorychoice;
 		browseinfo.lpszTitle = "Choose a directory to add";

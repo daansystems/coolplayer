@@ -387,12 +387,15 @@ struct
 	CPe_QuickFindTerm m_enQuickFindTerm;
 } options;
 
+#define BITRATE_STRLEN	40
+#define FREQ_STRLEN	40
+
 struct
 {
 	BOOL    playlist_bool_addsong;
 	DWORD playlist_last_add_time;
-	char    main_text_frequency[33];
-	char    main_text_bitrate[33];
+	char    main_text_frequency[FREQ_STRLEN];
+	char    main_text_bitrate[BITRATE_STRLEN];
 	unsigned long main_long_track_duration;
 	int     main_int_skin_last_number;
 	CPe_PlayerState m_enPlayerState;

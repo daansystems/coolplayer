@@ -574,5 +574,9 @@ SOURCE=.\res\usage.txt
 # PROP Exclude_From_Build 1
 # End Source File
 # End Group
+# Begin Source File
+
+SOURCE=.\res\coolplayer.exe.manifest
+# End Source File
 # End Target
 # End Project

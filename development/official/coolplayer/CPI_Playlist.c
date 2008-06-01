@@ -1067,7 +1067,7 @@ void CPL_AddPrefixedFile(CP_HPLAYLIST hPlaylist,
 //
 //
 //
-/** TODO - make AddFile load playlists from URLs **/
+/** // TODO: - make AddFile load playlists from URLs **/
 // currently only supports loading m3u from URL
 // and has code duplication for reading m3u file
 void CPL_AddFile(CP_HPLAYLIST hPlaylist, const char* pcFilename)

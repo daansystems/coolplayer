@@ -504,7 +504,7 @@ int     playlist_open_file(BOOL clearlist)
 	BOOL    returnval;
 	char    initialfilename[MAX_PATH * 200] = "";
 	fn.lStructSize = sizeof(OPENFILENAME);
-	fn.hwndOwner = (HWND) GetWindowLong(windows.wnd_main, DWL_USER);
+	fn.hwndOwner = (HWND)windows.wnd_main;
 	fn.hInstance = NULL;
 	fn.lpstrFilter = filefilter;
 	fn.lpstrCustomFilter = NULL;
@@ -1008,8 +1008,7 @@ void    options_create(HWND hWnd)
 
 void    url_create(HWND hWnd)
 {
-	DialogBox(GetModuleHandle(NULL), MAKEINTRESOURCE(IDD_URL),
-			  hWnd, (DLGPROC) url_windowproc);  
+	DialogBox(GetModuleHandle(NULL), MAKEINTRESOURCE(IDD_URL), hWnd, (DLGPROC) url_windowproc);  
 }
 
 void    main_menuproc(HWND hWnd, LPPOINT points)
@@ -1035,7 +1034,8 @@ void    main_menuproc(HWND hWnd, LPPOINT points)
 	{
 	
 		case MENU_EXIT:
-			DestroyWindow(hWnd);
+			CPVERB_Exit(vaDoVerb, hWnd);
+			// DestroyWindow(hWnd);
 			break;
 			
 		case MENU_PLAYLIST:
@@ -1435,8 +1435,8 @@ main_windowproc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 							break;
 							
 						case ExitButton:
-							DestroyWindow(hWnd);
-							
+							CPVERB_Exit(vaDoVerb, hWnd);
+							// DestroyWindow(hWnd);
 							break;
 							
 						case EjectButton:
