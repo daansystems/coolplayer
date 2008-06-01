@@ -1789,18 +1789,17 @@ void CPLI_ReadTag_OGG(CPs_PlaylistItem* pItem)
 		
 		for (iCommentIDX = 0; iCommentIDX < pComment->comments; iCommentIDX++)
 		{
-			char* cTag = malloc(pComment->comment_lengths[iCommentIDX]);
-			char* cValue = malloc(pComment->comment_lengths[iCommentIDX]);
+			char* cTag = malloc(pComment->comment_lengths[iCommentIDX]+8);
+			char* cValue = malloc(pComment->comment_lengths[iCommentIDX]+8);
 
 			// find "=" character to parse tag and value data		
 			{
 				int i = 0;
 				int equals_pos = 0;
-				char* comment;
+				char* comment = pComment->user_comments[iCommentIDX];
 
 				while (i < pComment->comment_lengths[iCommentIDX])
 				{
-					comment = pComment->user_comments[iCommentIDX];
 					if (comment[i] == '=')
 					{
 						equals_pos = i;
@@ -1810,8 +1809,13 @@ void CPLI_ReadTag_OGG(CPs_PlaylistItem* pItem)
 					i++;
 				}
 
-				strncpy(cTag, comment, equals_pos+1);
-				strncpy(cValue, comment+equals_pos+1, pComment->comment_lengths[iCommentIDX] - equals_pos);
+				if (equals_pos)
+				{
+					strncpy(cTag, comment, equals_pos+1);
+					strncpy(cValue, comment+equals_pos+1, pComment->comment_lengths[iCommentIDX] - equals_pos);
+				}
+				else
+					goto bottom_loop;
 			}
 
 			// SECURITY: rewritten due to exploit at
@@ -1847,6 +1851,7 @@ void CPLI_ReadTag_OGG(CPs_PlaylistItem* pItem)
 				}
 			}
 
+bottom_loop:
 			free(cTag);
 			free(cValue);
 
