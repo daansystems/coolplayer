@@ -257,7 +257,6 @@ void CP_HandleKeyPress_Player(HWND hWnd, const int iVKey, const BOOL bAlt, const
 			}
 			break;
 
-		// TODO: moved from CP_HandleKeyPress_Playlist
 		case 'H':
 			CPVERB_PlaylistShuffle(vaDoVerb, hWnd);
 			return;
