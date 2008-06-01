@@ -121,35 +121,35 @@ IDR_CHANGES             RAW     DISCARDABLE     "res\\changes.txt"
 // Dialog
 //
 
-IDD_ABOUT DIALOGEX 0, 0, 257, 194
+IDD_ABOUT DIALOGEX 0, 0, 278, 211
 STYLE DS_MODALFRAME | DS_NOIDLEMSG | DS_SETFOREGROUND | DS_NOFAILCREATE | 
     DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "About CoolPlayer"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
-    CONTROL         "About",IDC_ABOUTRADIO,"Button",BS_AUTORADIOBUTTON | 
-                    BS_PUSHLIKE,31,7,73,12
-    CONTROL         "Keyboard Shortcuts",IDC_KEYBOARDRADIO,"Button",
-                    BS_AUTORADIOBUTTON | BS_PUSHLIKE,104,7,73,12
-    ICON            APP_ICON,IDC_ABOUTICON,6,7,20,20,0,WS_EX_TRANSPARENT
-    EDITTEXT        IDC_ABOUTTEXT,32,19,218,138,ES_MULTILINE | ES_READONLY | 
+    CONTROL         "&About",IDC_ABOUTRADIO,"Button",BS_AUTORADIOBUTTON | 
+                    BS_PUSHLIKE,31,7,70,15
+    CONTROL         "&Keyboard Shortcuts",IDC_KEYBOARDRADIO,"Button",
+                    BS_AUTORADIOBUTTON | BS_PUSHLIKE,105,7,92,15
+    ICON            APP_ICON,IDC_ABOUTICON,6,7,21,20,0,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_ABOUTTEXT,31,27,240,153,ES_MULTILINE | ES_READONLY | 
                     WS_VSCROLL | WS_HSCROLL
-    DEFPUSHBUTTON   "Close",IDOK,109,175,38,12
-    CONTROL         "Spin1",IDC_SPIN1,"msctls_updown32",UDS_ARROWKEYS,12,159,
-                    12,13
-    PUSHBUTTON      "http://coolplayer.sourceforge.net",IDC_WEBSITE,52,159,
-                    154,13
-    CONTROL         "Changes",IDC_CHANGELOG,"Button",BS_AUTORADIOBUTTON | 
-                    BS_PUSHLIKE,177,7,73,12
+    DEFPUSHBUTTON   "C&lose",IDOK,201,189,70,15
+    CONTROL         "Spin1",IDC_SPIN1,"msctls_updown32",UDS_ARROWKEYS,13,167,
+                    11,13
+    PUSHBUTTON      "http://coolplayer.sourceforge.net",IDC_WEBSITE,31,189,
+                    155,15
+    CONTROL         "C&hanges",IDC_CHANGELOG,"Button",BS_AUTORADIOBUTTON | 
+                    BS_PUSHLIKE,201,7,70,15
 END
 
-IDD_OPTIONS DIALOG DISCARDABLE  0, 0, 250, 294
+IDD_OPTIONS DIALOG DISCARDABLE  0, 0, 250, 283
 STYLE DS_MODALFRAME | DS_SETFOREGROUND | DS_3DLOOK | DS_CENTER | WS_POPUP | 
     WS_CAPTION | WS_SYSMENU
 CAPTION "CoolPlayer Options"
 FONT 8, "MS Sans Serif"
 BEGIN
-    GROUPBOX        "General",-1,7,1,236,185
+    GROUPBOX        "General",-1,7,1,236,164
     CONTROL         "Always on top",IDC_ONTOP,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,16,13,107,10
     CONTROL         "Exit after playing",IDC_AUTOEXIT,"Button",
@@ -186,60 +186,63 @@ BEGIN
                     BS_AUTOCHECKBOX | WS_TABSTOP,131,97,106,10
     CONTROL         "Remember last played",IDC_REMSONG,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,131,110,106,10
-    EDITTEXT        IDC_DELAYTIME,17,149,24,12,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_DELAYTIME,131,128,24,15,ES_AUTOHSCROLL | ES_READONLY | 
                     ES_NUMBER
     CONTROL         "Spin1",IDC_DELAYTIMES,"msctls_updown32",UDS_SETBUDDYINT | 
                     UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS | 
-                    UDS_NOTHOUSANDS,61,140,11,9
-    LTEXT           "Track Delay (sec)",-1,43,151,57,8
-    EDITTEXT        IDC_REMSKINVAL,131,150,23,12,ES_AUTOHSCROLL | 
+                    UDS_NOTHOUSANDS,151,127,11,9
+    LTEXT           "Track Delay (sec)",-1,159,129,57,8
+    EDITTEXT        IDC_REMSKINVAL,131,143,23,15,ES_AUTOHSCROLL | 
                     ES_READONLY | ES_NUMBER
     CONTROL         "Spin1",IDC_REMEMBERSKIN,"msctls_updown32",
                     UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | 
-                    UDS_ARROWKEYS | UDS_NOTHOUSANDS,155,138,11,9
-    LTEXT           "Skinlist length",-1,156,152,46,11
-    PUSHBUTTON      "Flush",IDC_FLUSH_SKINLIST,201,151,32,11
-    PUSHBUTTON      "Register Filetypes",IDC_REGFILETYPE,11,167,113,13
-    PUSHBUTTON      "Add Icon to StartMenu && Desktop",IDC_ADDICONS,126,167,
-                    113,13,BS_CENTER
-    GROUPBOX        "Output",-1,7,190,236,48
-    COMBOBOX        IDC_OUTPUT,15,201,222,81,CBS_DROPDOWNLIST | WS_TABSTOP
-    RTEXT           "Volume controls",-1,17,218,56,12,SS_CENTERIMAGE
-    COMBOBOX        IDC_MIXER,77,218,160,81,CBS_DROPDOWNLIST | WS_TABSTOP
-    GROUPBOX        "Skin",-1,7,240,236,33,WS_GROUP
+                    UDS_ARROWKEYS | UDS_NOTHOUSANDS,151,145,11,9
+    LTEXT           "Skinlist length",-1,156,145,46,11
+    PUSHBUTTON      "Flush",IDC_FLUSH_SKINLIST,205,143,32,15
+    PUSHBUTTON      "Register Filetypes",IDC_REGFILETYPE,16,128,90,15
+    PUSHBUTTON      "Add to Start Menu",IDC_ADDICONS,16,144,90,15,BS_CENTER
+    GROUPBOX        "Output",-1,7,171,236,48
+    COMBOBOX        IDC_OUTPUT,15,182,222,81,CBS_DROPDOWNLIST | WS_TABSTOP
+    LTEXT           "Volume controls",-1,15,199,56,12,SS_CENTERIMAGE
+    COMBOBOX        IDC_MIXER,77,199,160,81,CBS_DROPDOWNLIST | WS_TABSTOP
+    GROUPBOX        "Skin",-1,7,225,236,33,WS_GROUP
     CONTROL         "Player",IDC_PLAYERSKINCHECK,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,13,253,35,10
-    EDITTEXT        IDC_LOADSKIN,51,251,141,13,ES_AUTOHSCROLL | ES_READONLY
-    PUSHBUTTON      "Open",IDC_SKINBUTTON,197,251,40,13
-    DEFPUSHBUTTON   "OK",IDOK,139,277,50,14
-    PUSHBUTTON      "Cancel",IDCANCEL,193,277,50,14
+                    WS_TABSTOP,13,238,35,10
+    EDITTEXT        IDC_LOADSKIN,51,236,136,15,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "Open",IDC_SKINBUTTON,196,236,41,15
+    DEFPUSHBUTTON   "OK",IDOK,119,265,60,15
+    PUSHBUTTON      "Cancel",IDCANCEL,183,265,60,15
 END
 
-IDD_URL DIALOG DISCARDABLE  0, 0, 311, 44
+IDD_URL DIALOG DISCARDABLE  0, 0, 235, 82
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Enter URL"
+CAPTION "Open URL"
 FONT 8, "MS Sans Serif"
 BEGIN
-    EDITTEXT        IDC_URL,7,7,297,12,ES_AUTOHSCROLL
-    DEFPUSHBUTTON   "OK",IDOK,197,25,50,14
-    PUSHBUTTON      "Cancel",IDCANCEL,254,25,50,14
+    EDITTEXT        IDC_URL,44,34,184,15,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,98,62,60,15
+    PUSHBUTTON      "Cancel",IDCANCEL,168,62,60,15
+    LTEXT           "&URL:",IDC_URL_STATIC,7,36,18,8
+    ICON            IDI_ICON_MP3,IDC_URL_ICON,7,7,21,20
+    LTEXT           "Type the URL you would like to play. Supported formats are MP3 and OGG streaming, and M3U playlists.",
+                    IDC_URL_DESCRIPTION,44,7,184,24
 END
 
-IDD_QUICKFIND DIALOG DISCARDABLE  0, 0, 221, 109
+IDD_QUICKFIND DIALOG DISCARDABLE  0, 0, 221, 116
 STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 CAPTION "Quick Find"
 FONT 8, "MS Sans Serif"
 BEGIN
-    EDITTEXT        IDC_FND_TEXT,7,20,207,14,ES_LOWERCASE | ES_AUTOHSCROLL
-    CONTROL         "Titles",IDC_QFND_TITLES,"Button",BS_AUTORADIOBUTTON,13,
-                    52,84,10
-    CONTROL         "Artist Names",IDC_QFND_ARTISTS,"Button",
-                    BS_AUTORADIOBUTTON,109,52,84,10
-    CONTROL         "Album Names",IDC_QFND_ALBUMS,"Button",
-                    BS_AUTORADIOBUTTON,13,66,84,10
-    DEFPUSHBUTTON   "Close",IDOK,164,88,50,14
+    EDITTEXT        IDC_FND_TEXT,7,20,207,15,ES_LOWERCASE | ES_AUTOHSCROLL
+    CONTROL         "&Titles",IDC_QFND_TITLES,"Button",BS_AUTORADIOBUTTON,13,
+                    54,84,10
+    CONTROL         "Artist &Names",IDC_QFND_ARTISTS,"Button",
+                    BS_AUTORADIOBUTTON,109,54,84,10
+    CONTROL         "&Album Names",IDC_QFND_ALBUMS,"Button",
+                    BS_AUTORADIOBUTTON,13,70,84,10
+    DEFPUSHBUTTON   "C&lose",IDOK,154,94,60,15
     CTEXT           "Find Text",-1,7,7,207,11,SS_CENTERIMAGE
-    GROUPBOX        "Look in",-1,7,42,207,43
+    GROUPBOX        "Look in",-1,7,42,207,44
 END
 
 
@@ -254,9 +257,9 @@ BEGIN
     IDD_ABOUT, DIALOG
     BEGIN
         LEFTMARGIN, 6
-        RIGHTMARGIN, 250
+        RIGHTMARGIN, 271
         TOPMARGIN, 7
-        BOTTOMMARGIN, 187
+        BOTTOMMARGIN, 204
     END
 
     IDD_OPTIONS, DIALOG
@@ -264,15 +267,15 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 243
         TOPMARGIN, 7
-        BOTTOMMARGIN, 291
+        BOTTOMMARGIN, 280
     END
 
     IDD_URL, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 304
+        RIGHTMARGIN, 228
         TOPMARGIN, 7
-        BOTTOMMARGIN, 39
+        BOTTOMMARGIN, 77
     END
 
     IDD_QUICKFIND, DIALOG
@@ -280,7 +283,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 214
         TOPMARGIN, 7
-        BOTTOMMARGIN, 102
+        BOTTOMMARGIN, 109
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -292,7 +295,13 @@ END
 //
 
 IDR_DEFAULTSKIN         SKIN    DISCARDABLE     "res\\Default.CPSkin"
-1	24	DISCARDABLE	"res\\coolplayer.exe.manifest"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// 24
+//
+
+1                       24      DISCARDABLE     "res\\coolplayer.exe.manifest"
 #endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 

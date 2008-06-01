@@ -2374,9 +2374,10 @@ void CLV_Handle_WM_KEYDOWN(CIs_ListViewData* pListData, const int iVKeyCode)
 			if (bCtrlIsDown == TRUE && pListData->m_iNumItems > 0)
 			{
 				CLV_SelectRange(pListData, 0, pListData->m_iNumItems - 1);
+				return;
 			}
 			
-			return;
+			break;
 			
 		case VK_RETURN:
 			CLV_ActionFocusedItem(pListData);

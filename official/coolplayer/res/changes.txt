@@ -7,6 +7,8 @@ Version 219
  + Enabled XP visual style support
  + Fixed bitrate display showing parts of previous songs bitrate
  + WAV file bitrate is now shown
+ + Improved dialogs
+ + Keyboard shortcuts between player and playlist are now more integrated
 
 Version 218
  + Fixed channels being swapped when toggling EQ

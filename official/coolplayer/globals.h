@@ -54,7 +54,7 @@ typedef void* CP_HSYSICON;
 #define SKIN_SUBMENU_INDEX		5
 
 // Handle to player
-#define CP_BUILD_NUMBER					218
+#define CP_BUILD_NUMBER					219
 #define CIC_HTTPHEADER					"http://"
 #define CIC_HTTPSHEADER					"https://"
 #define CIC_FTPHEADER					"ftp://"

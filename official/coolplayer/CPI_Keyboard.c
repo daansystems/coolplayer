@@ -40,19 +40,11 @@ void CP_HandleKeyPress_Playlist(HWND hWnd, const int iVKey, const BOOL bAlt, con
 		case 'F':
 			CPVERB_ToggleFindDialog(vaDoVerb, hWnd);
 			return;
-			
-		case 'H':
-			CPVERB_PlaylistShuffle(vaDoVerb, hWnd);
-			return;
-			
+	
 		case 'V':
 			CPVERB_SavePlaylist(vaDoVerb, hWnd);
 			return;
-			
-		case 'D':
-			CPVERB_AddDirectory(vaDoVerb, hWnd);
-			return;
-			
+
 		case VK_DELETE:
 			// FALLTHROUGH
 		case VK_BACK:
@@ -243,12 +235,10 @@ void CP_HandleKeyPress_Player(HWND hWnd, const int iVKey, const BOOL bAlt, const
 		case 'L':	// FALLTHROUGH
 		case 'O':
 			CPVERB_OpenFile(vaDoVerb, hWnd);
-			
 			break;
 			
 		case 'A':
 			CPVERB_AddFile(vaDoVerb, hWnd);
-			
 			break;
 			
 		case VK_DELETE:
@@ -265,8 +255,16 @@ void CP_HandleKeyPress_Player(HWND hWnd, const int iVKey, const BOOL bAlt, const
 					
 				}
 			}
-			
 			break;
+
+		// TODO: moved from CP_HandleKeyPress_Playlist
+		case 'H':
+			CPVERB_PlaylistShuffle(vaDoVerb, hWnd);
+			return;
+			
+		case 'D':
+			CPVERB_AddDirectory(vaDoVerb, hWnd);
+			return;
 	}
 }
 
