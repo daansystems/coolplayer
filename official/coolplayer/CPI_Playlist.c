@@ -1220,7 +1220,7 @@ void CPL_AddFile(CP_HPLAYLIST hPlaylist, const char* pcFilename)
 						|| iCharIDX == internetbuffer.dwBufferLength)
 						&& iLastLineStartIDX < iCharIDX)
 				{
-					char cBuffer[512];
+					char cBuffer[513];
 					
 					// Is there a file on this line (strip whitespace from start)
 					
@@ -1271,7 +1271,7 @@ void CPL_AddFile(CP_HPLAYLIST hPlaylist, const char* pcFilename)
 								|| iCharIDX == dwFileSize)
 								&& iLastLineStartIDX < iCharIDX)
 						{
-							char cBuffer[512];
+							char cBuffer[513];
 							
 							// Is there a file on this line (strip whitespace from start)
 							
